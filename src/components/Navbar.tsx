@@ -10,7 +10,8 @@ import {
   Stack,
   Container,
   Collapse,
-  Button
+  Button,
+  Text
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
@@ -31,7 +32,7 @@ export default function Simple() {
               onClick={onToggle}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <Box>jemgdev</Box>
+              <Text fontSize='2xl' fontWeight='semibold'>jemgdev</Text>
               <HStack
                 as={'nav'}
                 spacing={4}

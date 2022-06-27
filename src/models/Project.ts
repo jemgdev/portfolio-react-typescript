@@ -2,7 +2,7 @@ export default interface Project {
   code: string
   description: string
   img: string
-  language: string[]
+  languages: [{ name: string, color: string }]
   link: string
   title: string
 }
