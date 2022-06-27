@@ -9,9 +9,9 @@ import {
   Center, 
   useColorModeValue 
 } from '@chakra-ui/react'
-import Project from '../models/Project'
+import IProject from '../models/IProject'
 
-export default function CardProject ({ code, description, img, languages, link, title }: Project) {
+export default function CardProject ({ code, description, img, languages, link, title }: IProject) {
   return (
     <Box maxW='lg' borderWidth='1px' borderRadius='lg' overflow='hidden' shadow='md' display='flex' flexDirection='column' justifyContent='space-between'>
       <Image src={img} alt={description} shadow='sm' />

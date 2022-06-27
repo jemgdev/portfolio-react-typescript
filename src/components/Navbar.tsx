@@ -39,7 +39,7 @@ export default function Simple() {
                 display={{ base: 'none', md: 'flex' }}>
                 <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose} />
                 <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
-                <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='home' onClose={onClose}/>
+                <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
                 <NavLink href='#skills' text='Skills' scrollToElement='home' onClose={onClose}/>
                 <NavLink href='#contact-me' text='Contáctame' scrollToElement='home' onClose={onClose}/>
               </HStack>
@@ -56,7 +56,7 @@ export default function Simple() {
             <Stack as={'nav'} spacing={4}>
               <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose}/>
               <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
-              <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='home' onClose={onClose}/>
+              <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
               <NavLink href='#skills' text='Skills' scrollToElement='home' onClose={onClose}/>
               <NavLink href='#contact-me' text='Contáctame' scrollToElement='home' onClose={onClose}/>
             </Stack>
