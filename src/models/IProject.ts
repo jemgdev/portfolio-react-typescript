@@ -1,4 +1,4 @@
-export default interface Project {
+export default interface IProject {
   code: string
   description: string
   img: string
