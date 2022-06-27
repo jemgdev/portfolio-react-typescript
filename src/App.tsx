@@ -1,10 +1,14 @@
-import React from 'react'
-import Home from './pages/Home'
+import Navbar from './components/Navbar'
+import { Container } from '@chakra-ui/react'
+import Projects from './pages/Projects'
 
-function App () {
+export default function App () {
   return (
-    <Home/>
+    <>
+      <Navbar />
+      <Container maxW='container.xl'>
+        <Projects />
+      </Container>
+    </>
   )
 }
-
-export default App

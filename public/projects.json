@@ -1,0 +1,50 @@
+[
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261618/Portfolio/progrraminggk_rtvrgw.jpg",
+        "title": "ProgrammingGK",
+        "description": "Bot para la plataforma discord enfocado en contestar preguntas programadas y consumo de APIs gratuitas.",
+        "link": "https://discord.com/api/oauth2/authorize?client_id=822595574934667325&permissions=0&scope=bot",
+        "code": "https://github.com/jemgdev/ProgrammingGK",
+        "languages": ["Node.js", "JavaScript", "discord.js"]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/v1649993463/Portfolio/goclass_cwugmp.jpg",
+        "title": "GoClass",
+        "description": "Plataforma web para instituciones educativas con administración de cuentas de usuarios.",
+        "link": "https://goclass.netlify.app/",
+        "code": "https://github.com/jemgdev/GoClass-App",
+        "languages": ["MongoDB", "Express", "ReactJS", "Node.js", "Vite", "Bootstrap", "Firebase", "Cloudinary", "eslint"]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261623/Portfolio/img-share_lsgi0j.jpg",
+        "title": "ImgShare",
+        "description": "Red social con funciones básicas para la subida de imágenes y postear comentarios.",
+        "link": "https://imgshare-josueemg.herokuapp.com/",
+        "code": "https://github.com/jemgdev/ImgShare",
+        "languages": ["MongoDB", "Express", "Handlebars", "Node.js", "Bootstrap", "Cloudinary"]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638288583/Portfolio/photo-gallery_akcmf9.jpg",
+        "title": "PhotoGallery",
+        "description": "Aplicación web con un CRUD básico enfocado a la subida de imágenes en forma de galeria.",
+        "link": "https://photo-gallery-josueemg.herokuapp.com/",
+        "code": "https://github.com/jemgdev/PhotoGallery",
+        "languages": ["MongoDB", "Express", "Handlebars", "Node.js", "Bootstrap", "Cloudinary"]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638289829/Portfolio/chat-utp_hl32k5.jpg",
+        "title": "ChatUTP",
+        "description": "Aplicación web para chatear, creado para una evaluación del curso Sistemas Distribuidos de la universidad.",
+        "link": "https://chat-utp-josueemg.herokuapp.com/",
+        "code": "https://github.com/jemgdev/ChatUTP",
+        "languages": ["Express", "EJS", "Node.js", "Bootstrap", "Socket.IO"]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638307801/Portfolio/rick-and-morty-api_blzvak.jpg",
+        "title": "Rick and Morty API",
+        "description": "Pequeño proyecto de consumo de API de la serie Rick and Morty.",
+        "link": "https://jemgdev.github.io/RickAndMortyAPI/",
+        "code": "https://github.com/jemgdev/RickAndMortyAPI",
+        "languages": ["ReactJS", "Webpack", "CSS"]
+    }
+]
