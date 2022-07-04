@@ -6,11 +6,10 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
-  useDisclosure,
-  Link
+  useDisclosure
 } from '@chakra-ui/react'
 import NavLink from './NavLink'
-import { BsGithub, BsLinkedin, BsPerson } from 'react-icons/bs'
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { ReactNode } from 'react'
 
 const SocialButton = ({
