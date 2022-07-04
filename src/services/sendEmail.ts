@@ -26,7 +26,7 @@ export default async function sendEmail (contact: IContact) : Promise<IEmailResp
   }
 
   try {
-    const response = await fetch('https://formspree.io/f/xyyogwkw', {
+    const response = await fetch(import.meta.env.VITE_FORMSPREE_API, {
       method: 'POST',
       body: JSON.stringify(contact),
       headers: {
