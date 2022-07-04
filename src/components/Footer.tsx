@@ -59,7 +59,7 @@ export default function Footer() {
         justify={'center'}
         align={'center'}>
         <Text fontSize='2xl' fontWeight='semibold'>jemgdev</Text>
-        <Stack direction={'row'} spacing={6}>
+        <Stack direction={['column', 'row']} spacing={3}>
           <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose} />
           <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
           <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
