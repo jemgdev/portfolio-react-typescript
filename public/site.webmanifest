@@ -1,7 +1,7 @@
 {
   "name": "jemgdev",
   "short_name": "jemgdev",
-  "start_url": "https://jemgdev.github.io/Portfolio",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
