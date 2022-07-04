@@ -32,7 +32,7 @@ export default function Simple() {
               onClick={onToggle}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <Text fontSize='2xl' fontWeight='semibold'>jemgdev</Text>
+              <Text as={'a'} fontSize='2xl' fontWeight='semibold' href='https://portfolio-jemgdev.vercel.app'>jemgdev</Text>
               <HStack
                 as={'nav'}
                 spacing={4}
@@ -40,8 +40,8 @@ export default function Simple() {
                 <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose} />
                 <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
                 <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
-                <NavLink href='#skills' text='Skills' scrollToElement='home' onClose={onClose}/>
-                <NavLink href='#contact-me' text='Contáctame' scrollToElement='home' onClose={onClose}/>
+                <NavLink href='#skills' text='Skills' scrollToElement='skills' onClose={onClose}/>
+                <NavLink href='#contact-me' text='Contáctame' scrollToElement='contact-me' onClose={onClose}/>
               </HStack>
             </HStack>
             <Flex alignItems='end'>
@@ -57,8 +57,8 @@ export default function Simple() {
               <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose}/>
               <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
               <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
-              <NavLink href='#skills' text='Skills' scrollToElement='home' onClose={onClose}/>
-              <NavLink href='#contact-me' text='Contáctame' scrollToElement='home' onClose={onClose}/>
+              <NavLink href='#skills' text='Skills' scrollToElement='skills' onClose={onClose}/>
+              <NavLink href='#contact-me' text='Contáctame' scrollToElement='contact-me' onClose={onClose}/>
             </Stack>
           </Box>
         </Collapse>

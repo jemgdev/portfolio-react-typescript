@@ -46,12 +46,12 @@ export default function Projects () {
   
   return (
     <Element name='projects'>
-      <Text align='center' fontSize='3xl' fontWeight='semibold' mt='10vh' mb='4vh'>Proyectos</Text>
+      <Text align='center' fontSize={{ base: '3xl', md: '4xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Proyectos</Text>
       <SimpleGrid columns={[1, 2, 3]} gap={8} ref={projectsRef}>
         {
           isLoaded 
             ? projects.map(project => <CardProject key={project.title} {...project} />)
-            : (<CardProjectSkeleton />)
+            : <CardProjectSkeleton />
         }
       </SimpleGrid>
     </Element>

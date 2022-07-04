@@ -3,6 +3,9 @@ import { Container } from '@chakra-ui/react'
 import Projects from './pages/Projects'
 import Home from './pages/Home'
 import GitHubProjects from './pages/GitHubProjects'
+import Skills from './pages/Skills'
+import ContactMe from './pages/ContactMe'
+import Footer from './components/Footer'
 
 export default function App () {
   return (
@@ -12,7 +15,10 @@ export default function App () {
         <Home />
         <Projects />
         <GitHubProjects />
+        <Skills />
+        <ContactMe />
       </Container>
+      <Footer />
     </>
   )
 }

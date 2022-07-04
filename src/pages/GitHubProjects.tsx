@@ -9,17 +9,20 @@ import { getProjects } from '../services/gitHubProjects'
 import CardGitHubProject from '../components/CardGitHubProject'
 import { useToast } from '@chakra-ui/react'
 import scrollReveal from 'scrollreveal'
+import CardGitHubProjectSkeleton from '../components/CardGitHubProjectSkeleton'
 
 export default function GitHubProjects () {
   const [gitHubProjects, setGitHubProjects] = useState<IGitHubProject[]>([])
-  const projectsRef = useRef<HTMLDivElement>(null)
+  const gitHubProjectsRef = useRef<HTMLDivElement>(null)
+  const [isLoaded, setIsLoaded] = useState(false)
   const toast = useToast()
 
   const setStateGitHubProjects = async () => {
     try {
       setGitHubProjects(await getProjects())
-      if (projectsRef.current) {
-        scrollReveal().reveal(projectsRef.current, {
+      setIsLoaded(!isLoaded)
+      if (gitHubProjectsRef.current) {
+        scrollReveal().reveal(gitHubProjectsRef.current, {
           delay: 120,
           distance: '2em',
           origin: 'bottom',
@@ -46,12 +49,12 @@ export default function GitHubProjects () {
 
   return (
     <Element name='github-projects'>
-      <Text align='center' fontSize='3xl' fontWeight='semibold' mt='10vh' mb='4vh'>Proyectos de GitHub</Text>
-      <SimpleGrid columns={[1, 2, 3]} gap={8} ref={projectsRef}>
+      <Text align='center' fontSize={{ base: '3xl', md: '4xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Proyectos de GitHub</Text>
+      <SimpleGrid columns={[1, 2, 3]} gap={8} ref={gitHubProjectsRef}>
         {
-          gitHubProjects.map(gitHubProject => (
-            <CardGitHubProject key={gitHubProject.id} { ...gitHubProject } />
-          ))
+          isLoaded 
+            ? gitHubProjects.map(gitHubProject => <CardGitHubProject key={gitHubProject.id} { ...gitHubProject } />)
+            : <CardGitHubProjectSkeleton />
         }
       </SimpleGrid>
     </Element>

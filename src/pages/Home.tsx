@@ -2,7 +2,8 @@ import { useRef, useEffect } from 'react'
 import { 
   Text, 
   Container, 
-  Flex 
+  Flex,
+  Center
 } from '@chakra-ui/react'
 import { Element } from 'react-scroll'
 import scrollReveal from 'scrollreveal'
@@ -27,8 +28,8 @@ export default function Home () {
   return (
     <Element name='home'>
       <Flex direction='column' alignItems='center' justifyContent='center' minH='100vh'>
-        <Text fontSize='4xl' ref={textNameRef}>Hola, soy Josué Emmanuel Medina García</Text>
-        <Container maxW='container.md' pt='3vh'>
+        <Container maxW='container.md'>
+          <Text fontSize='4xl' ref={textNameRef} mb='4vh'>Hola, soy Josué Emmanuel Medina García</Text>
           <Text fontSize='xl' ref={textDescriptionRef}>Soy web developer full stack apasionado por el backend. Me encanta desarrollar sistemas con el fin de automatizar procesos en empresas de cualquier rubro.</Text>
         </Container>
       </Flex>
