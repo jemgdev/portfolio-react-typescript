@@ -33,10 +33,6 @@ const skills: skill[] = [
     alt: 'html'
   },
   {
-    src: 'https://img.icons8.com/color/144/000000/css3.png',
-    alt: 'css3'
-  },
-  {
     src: 'https://img.icons8.com/color/144/000000/linux--v1.png',
     alt: 'linux'
   },
@@ -71,6 +67,14 @@ const skills: skill[] = [
   {
     src: 'https://img.icons8.com/color/144/000000/chakra-ui.png',
     alt: 'chakra-ui'
+  },
+  {
+    src: 'https://img.icons8.com/color/144/000000/bootstrap.png',
+    alt: 'bootstrap'
+  },
+  {
+    src: 'https://img.icons8.com/color/144/000000/firebase.png',
+    alt: 'firebase'
   }
 ]
 

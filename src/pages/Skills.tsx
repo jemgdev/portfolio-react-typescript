@@ -7,6 +7,7 @@ import {
   Image
 } from '@chakra-ui/react'
 import scrollReveal from 'scrollreveal'
+import skills from '../services/skills'
 
 export default function Skills () {
   const skillsRef = useRef<HTMLDivElement>(null)
@@ -26,23 +27,10 @@ export default function Skills () {
     <Element name='skills'>
       <Text align='center' fontSize={{ base: '3xl', md: '4xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Mis Skills</Text>
       <Flex justifyContent='center'>
-        <SimpleGrid columns={[2, 3, 4]} gap={{ base: 90, md: 120, lg: 160 }} ref={skillsRef}>
-          <Image src='https://img.icons8.com/ultraviolet/80/000000/react--v2.png' alt='react' />
-          <Image src='https://img.icons8.com/color/96/000000/javascript--v1.png' alt='javasrcipt' />
-          <Image src='https://img.icons8.com/color/96/000000/mongodb.png' alt='mongodb' />
-          <Image src='https://img.icons8.com/color/96/000000/nodejs.png' alt='nodejs' />
-          <Image src='https://img.icons8.com/color/96/000000/java-coffee-cup-logo--v1.png' alt='java' />
-          <Image src='https://img.icons8.com/color/96/000000/tomcat.png' alt='tomcat' />
-          <Image src='https://img.icons8.com/color/96/000000/html-5--v1.png' alt='html' />
-          <Image src='https://img.icons8.com/color/96/000000/css3.png' alt='css' />
-          <Image src='https://img.icons8.com/color/96/000000/linux--v1.png' alt='linux' />
-          <Image src='https://img.icons8.com/color/96/000000/mysql-logo.png' alt='mysql' />
-          <Image src='https://img.icons8.com/offices/80/000000/php-logo.png' alt='php' />
-          <Image src='https://img.icons8.com/color/96/000000/git.png' alt='git' />     
-          <Image src='https://img.icons8.com/color/96/000000/android-studio--v2.png' alt='android-studio' />
-          <Image src='https://img.icons8.com/fluency/96/000000/azure-1.png' alt='azure' />
-          <Image src='https://img.icons8.com/color/96/000000/heroku.png' alt='heroku' />
-          <Image src='https://img.icons8.com/color/96/000000/typescript.png' alt='typescript' />
+        <SimpleGrid columns={[2, 3, 4]} columnGap={{ base: '10vh', md: '15vh', lg: '25vh' }} rowGap={{ base: '5vh', md: '5vh', lg: '5vh' }} ref={skillsRef}>
+          {
+            skills.map(skill => <Image key={skill.alt} src={skill.src} alt={skill.alt} />)
+          }
         </SimpleGrid>
       </Flex>
     </Element>
