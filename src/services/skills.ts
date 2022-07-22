@@ -75,6 +75,10 @@ const skills: skill[] = [
   {
     src: 'https://img.icons8.com/color/144/000000/firebase.png',
     alt: 'firebase'
+  },
+  {
+    src: 'https://cdn.discordapp.com/attachments/699338698097033267/999945787838566600/unknown.png',
+    alt: 'selenium'
   }
 ]
 
