@@ -1,4 +1,4 @@
-interface skill {
+type skill = {
   src: string,
   alt: string
 }

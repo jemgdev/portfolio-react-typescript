@@ -1,12 +1,13 @@
-import IContact from '../models/IContact'
-import IEmailResponse from '../models/IEmailResponse'
+import Contact from '../types/Contact'
+import EmailResponse from '../types/EmailResponse'
+
+const IS_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const isEmail = (email: string) => {
-  return email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+  return email.toLowerCase().match(IS_EMAIL)
 }
 
-export default async function sendEmail (contact: IContact) : Promise<IEmailResponse> {
-
+export default async function sendEmail (contact: Contact) : Promise<EmailResponse> {
   const { name, email , message } = contact
 
   if ( name === '' || email === '' || message === '') {
@@ -35,7 +36,7 @@ export default async function sendEmail (contact: IContact) : Promise<IEmailResp
     })
 
     const data = await response.json()
-
+    
     return {
       ok: data.ok,
       message: 'Mensaje enviado exitosamente.',

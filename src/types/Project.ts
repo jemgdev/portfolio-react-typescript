@@ -1,4 +1,4 @@
-export default interface IProject {
+type Project = {
   code: string
   description: string
   img: string
@@ -6,3 +6,5 @@ export default interface IProject {
   link: string
   title: string
 }
+
+export default Project

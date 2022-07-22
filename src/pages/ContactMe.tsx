@@ -21,14 +21,14 @@ import {
 import { Element } from 'react-scroll'
 import { BsGithub, BsLinkedin, BsPerson } from 'react-icons/bs'
 import { MdEmail, MdOutlineEmail } from 'react-icons/md'
-import IContact from '../models/IContact'
+import Contact from '../types/Contact'
 import sendEmail from '../services/sendEmail'
 import { useToast } from '@chakra-ui/react'
 
 export default function ContactMe() {
   const initValues = { email: '', name: '', message: '' }
   const { hasCopied, onCopy } = useClipboard('jemgdev@gmail.com')
-  const [ email, setEmail ] = useState<IContact>(initValues)
+  const [ email, setEmail ] = useState<Contact>(initValues)
   const toast = useToast()
 
   const handleChage = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

@@ -4,7 +4,7 @@ import {
   SimpleGrid
 } from '@chakra-ui/react'
 import { Element } from 'react-scroll'
-import IGitHubProject from '../models/IGitHubProject'
+import IGitHubProject from '../types/GitHubProject'
 import { getProjects } from '../services/gitHubProjects'
 import CardGitHubProject from '../components/CardGitHubProject'
 import { useToast } from '@chakra-ui/react'

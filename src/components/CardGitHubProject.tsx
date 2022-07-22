@@ -7,9 +7,9 @@ import {
   useColorModeValue, 
   ButtonGroup
 } from '@chakra-ui/react'
-import IGitHubProject from '../models/IGitHubProject'
+import GitHubProject from '../types/GitHubProject'
 
-export default function CardGitHubProject ({ description, html_url, language, name }: IGitHubProject) {
+export default function CardGitHubProject ({ description, html_url, language, name }: GitHubProject) {
 
   const colorByLanguage = (languageName: string): string | undefined => {
     if (languageName === 'JavaScript') return 'yellow'
