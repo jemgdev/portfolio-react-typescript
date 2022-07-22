@@ -9,13 +9,13 @@ import {
   IconButton,
   Input,
   InputGroup,
-  InputLeftElement,
   Link,
   Stack,
   Textarea,
   Tooltip,
   useClipboard,
   useColorModeValue,
+  InputLeftAddon,
   VStack
 } from '@chakra-ui/react'
 import { Element } from 'react-scroll'
@@ -127,9 +127,9 @@ export default function ContactMe() {
                     <FormControl isRequired>
                       <FormLabel>Nombre</FormLabel>
                       <InputGroup>
-                        <InputLeftElement>
-                          <BsPerson />
-                        </InputLeftElement>
+                        <InputLeftAddon >
+                          <BsPerson/>
+                        </InputLeftAddon > 
                         <Input 
                           type="text" 
                           name="name" 
@@ -142,9 +142,9 @@ export default function ContactMe() {
                     <FormControl isRequired>
                       <FormLabel>Email</FormLabel>
                       <InputGroup>
-                        <InputLeftElement>
+                        <InputLeftAddon >
                           <MdOutlineEmail />
-                        </InputLeftElement>
+                        </InputLeftAddon >
                         <Input
                           type="email"
                           name="email"
