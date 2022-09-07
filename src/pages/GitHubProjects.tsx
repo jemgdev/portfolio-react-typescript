@@ -18,27 +18,31 @@ export default function GitHubProjects () {
   const toast = useToast()
 
   const setStateGitHubProjects = async () => {
-    try {
-      setGitHubProjects(await getProjects())
+
+    const responseGitHubProjects = await getProjects()
+
+    if (responseGitHubProjects.message === 'ok') {
+      setGitHubProjects(responseGitHubProjects.gitHubProjects)
       setIsLoaded(!isLoaded)
-      if (gitHubProjectsRef.current) {
-        scrollReveal().reveal(gitHubProjectsRef.current, {
-          delay: 120,
-          distance: '2em',
-          origin: 'bottom',
-          opacity: 0,
-          reset: true
-        })
-      }
-    } catch (error) {
+    } else {
       toast({
         title: 'Error del servidor',
-        description: 'Hubo un fallo al cargar los recursos de GitHub.',
+        description: `Hubo un fallo al cargar los recursos de GitHub: ${responseGitHubProjects.message}`,
         status: 'error',
         duration: 3000,
         variant: 'top-accent',
         position: 'bottom',
         isClosable: true,
+      })
+    }
+    
+    if (gitHubProjectsRef.current) {
+      scrollReveal().reveal(gitHubProjectsRef.current, {
+        delay: 120,
+        distance: '2em',
+        origin: 'bottom',
+        opacity: 0,
+        reset: true
       })
     }
   }
