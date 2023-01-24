@@ -19,7 +19,7 @@
         "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261623/Portfolio/img-share_lsgi0j.jpg",
         "title": "ImgShare",
         "description": "Red social con funciones básicas para la carga y subida de imágenes, ademas de postear comentarios.",
-        "link": "https://imgshare-josueemg.herokuapp.com/",
+        "link": "https://imgshare-production.up.railway.app/",
         "code": "https://github.com/jemgdev/ImgShare",
         "languages": [{ "name": "MongoDB", "color": "whatsapp" }, { "name": "Express", "color": "white" }, { "name": "JavaScript", "color": "yellow" }, { "name": "Handlebars", "color": "orange" }, { "name": "Node.js", "color": "green" }, { "name":"Bootstrap", "color": "purple"}, { "name": "Cloudinary", "color": "blue" }]
     },
