@@ -35,7 +35,7 @@
         "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638289829/Portfolio/chat-utp_hl32k5.jpg",
         "title": "ChatUTP",
         "description": "Aplicación web para chatear, creado para una evaluación del curso Sistemas Distribuidos de la universidad.",
-        "link": "https://chat-utp-josueemg.herokuapp.com/",
+        "link": "https://chatutp-production.up.railway.app/",
         "code": "https://github.com/jemgdev/ChatUTP",
         "languages": [{ "name": "JavaScript", "color": "yellow" }, { "name": "Express", "color": "white" }, { "name": "EJS", "color": "orange" }, { "name": "Node.js", "color": "green" }, { "name":"Bootstrap", "color": "purple"}, { "name": "Socket.IO", "color": "white" }]
     },
