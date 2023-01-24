@@ -27,7 +27,7 @@
         "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638288583/Portfolio/photo-gallery_akcmf9.jpg",
         "title": "PhotoGallery",
         "description": "Aplicación web con un CRUD básico enfocado a la subida de imágenes en forma de galeria a travs de servicios en la nube.",
-        "link": "https://photo-gallery-josueemg.herokuapp.com/",
+        "link": "https://photogallery-production-1fa1.up.railway.app/",
         "code": "https://github.com/jemgdev/PhotoGallery",
         "languages": [{ "name": "MongoDB", "color": "whatsapp" }, { "name": "Express", "color": "white" }, { "name": "JavaScript", "color": "yellow" }, { "name": "Handlebars", "color": "orange" }, { "name": "Node.js", "color": "green" }, { "name":"Bootstrap", "color": "purple"}, { "name": "Cloudinary", "color": "blue" }]
     },
