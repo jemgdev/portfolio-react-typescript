@@ -1,21 +1,5 @@
 [
     {
-        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261618/Portfolio/progrraminggk_rtvrgw.jpg",
-        "title": "ProgrammingGK",
-        "description": "Bot para la plataforma discord enfocado en contestar preguntas programadas y consumo de APIs gratuitas.",
-        "link": "https://discord.com/api/oauth2/authorize?client_id=822595574934667325&permissions=0&scope=bot",
-        "code": "https://github.com/jemgdev/ProgrammingGK",
-        "languages": [{ "name": "Node.js", "color": "green" }, { "name": "JavaScript", "color": "yellow" }, { "name": "discord.js", "color": "blue" }]
-    },
-    {
-        "img": "https://res.cloudinary.com/josueemg/image/upload/v1649993463/Portfolio/goclass_cwugmp.jpg",
-        "title": "GoClass",
-        "description": "Plataforma web para instituciones educativas con administración de cuentas de usuarios, modulos y grados.",
-        "link": "https://goclass.netlify.app/",
-        "code": "https://github.com/jemgdev/GoClass-App",
-        "languages": [{ "name": "MongoDB", "color": "whatsapp" }, { "name": "Express", "color": "white" }, { "name": "JavaScript", "color": "yellow" }, { "name": "ReactJS", "color": "facebook" }, { "name": "Node.js", "color": "green" }, { "name": "Vite", "color": "linkedin" }, { "name": "Bootstrap", "color": "purple"}, { "name": "Firebase", "color": "yellow" }, { "name": "Cloudinary", "color": "blue" }, { "name": "eslint", "color": "messenger" }]
-    },
-    {
         "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261623/Portfolio/img-share_lsgi0j.jpg",
         "title": "ImgShare",
         "description": "Red social con funciones básicas para la carga y subida de imágenes, ademas de postear comentarios.",
@@ -46,5 +30,21 @@
         "link": "https://jemgdev.github.io/RickAndMortyAPI/",
         "code": "https://github.com/jemgdev/RickAndMortyAPI",
         "languages": [{ "name": "JavaScript", "color": "yellow" }, { "name": "ReactJS", "color": "facebook" }, { "name": "Webpack", "color": "messenger" }, { "name": "CSS", "color": "blue" }]
-    }
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/v1649993463/Portfolio/goclass_cwugmp.jpg",
+        "title": "GoClass",
+        "description": "Plataforma web para instituciones educativas con administración de cuentas de usuarios, modulos y grados.",
+        "link": "https://goclass.netlify.app/",
+        "code": "https://github.com/jemgdev/GoClass-App",
+        "languages": [{ "name": "MongoDB", "color": "whatsapp" }, { "name": "Express", "color": "white" }, { "name": "JavaScript", "color": "yellow" }, { "name": "ReactJS", "color": "facebook" }, { "name": "Node.js", "color": "green" }, { "name": "Vite", "color": "linkedin" }, { "name": "Bootstrap", "color": "purple"}, { "name": "Firebase", "color": "yellow" }, { "name": "Cloudinary", "color": "blue" }, { "name": "eslint", "color": "messenger" }]
+    },
+    {
+        "img": "https://res.cloudinary.com/josueemg/image/upload/c_scale,h_220,w_390/v1638261618/Portfolio/progrraminggk_rtvrgw.jpg",
+        "title": "ProgrammingGK",
+        "description": "Bot para la plataforma discord enfocado en contestar preguntas programadas y consumo de APIs gratuitas.",
+        "link": "https://discord.com/api/oauth2/authorize?client_id=822595574934667325&permissions=0&scope=bot",
+        "code": "https://github.com/jemgdev/ProgrammingGK",
+        "languages": [{ "name": "Node.js", "color": "green" }, { "name": "JavaScript", "color": "yellow" }, { "name": "discord.js", "color": "blue" }]
+    },
 ]
