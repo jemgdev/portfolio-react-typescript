@@ -46,5 +46,5 @@
         "link": "https://discord.com/api/oauth2/authorize?client_id=822595574934667325&permissions=0&scope=bot",
         "code": "https://github.com/jemgdev/ProgrammingGK",
         "languages": [{ "name": "Node.js", "color": "green" }, { "name": "JavaScript", "color": "yellow" }, { "name": "discord.js", "color": "blue" }]
-    },
+    }
 ]
