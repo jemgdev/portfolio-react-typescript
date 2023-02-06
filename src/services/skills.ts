@@ -25,10 +25,6 @@ const skills: skill[] = [
     alt: 'java'
   },
   {
-    src: 'https://img.icons8.com/color/144/000000/tomcat.png',
-    alt: 'tomcat'
-  },
-  {
     src: 'https://img.icons8.com/color/144/000000/html-5--v1.png',
     alt: 'html'
   },
@@ -41,10 +37,6 @@ const skills: skill[] = [
     alt: 'mysql'
   },
   {
-    src: 'https://img.icons8.com/offices/144/000000/php-logo.png',
-    alt: 'php'
-  },
-  {
     src: 'https://img.icons8.com/color/144/000000/git.png',
     alt: 'git'
   },
@@ -53,12 +45,8 @@ const skills: skill[] = [
     alt: 'android-studio'
   },
   {
-    src: 'https://img.icons8.com/fluency/144/000000/azure-1.png',
-    alt: 'azure'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/000000/heroku.png',
-    alt: 'heroku'
+    src: 'https://img.icons8.com/color/144/null/amazon-web-services.png',
+    alt: 'aws'
   },
   {
     src: 'https://img.icons8.com/color/144/000000/typescript.png',
