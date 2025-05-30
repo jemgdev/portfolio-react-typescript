@@ -32,7 +32,7 @@ export default function Simple() {
               onClick={onToggle}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <Text as={'a'} fontSize='2xl' fontWeight='semibold' href='https://portfolio-jemgdev.vercel.app'>jemgdev</Text>
+              <Text as={'a'} fontSize='2xl' fontWeight='semibold' href='https://portfolio.jemgdev.click'>jemgdev</Text>
               <HStack
                 as={'nav'}
                 spacing={4}
