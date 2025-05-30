@@ -49,47 +49,61 @@ export default function Footer() {
 
   return (
     <Box
+      as="footer"
       bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container
-        as={Stack}
-        maxW={'6xl'}
-        py={4}
-        spacing={4}
-        justify={'center'}
-        align={'center'}>
-        <Text fontSize='2xl' fontWeight='semibold'>jemgdev</Text>
-        <Stack direction={['column', 'row']} spacing={3}>
-          <NavLink href='#home' text='Inicio' scrollToElement='home' onClose={onClose} />
-          <NavLink href='#projects' text='Proyectos' scrollToElement='projects' onClose={onClose}/>
-          <NavLink href='#github-projects' text='Proyectos de github' scrollToElement='github-projects' onClose={onClose}/>
-          <NavLink href='#skills' text='Skills' scrollToElement='skills' onClose={onClose}/>
-          <NavLink href='#contact-me' text='Contáctame' scrollToElement='contact-me' onClose={onClose}/>
-        </Stack>
-      </Container>
-      <Box
-        borderTopWidth={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.700')}>
-        <Container
-          as={Stack}
-          maxW={'6xl'}
-          py={4}
-          direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}>
-          <Text>2022 jemgdev. Hecho con ❤️.</Text>
-          <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'GitHub'} href={'https://github.com/jemgdev'}>
-              <BsGithub />
-            </SocialButton>
-            <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/in/jemgdev/'}>
-              <BsLinkedin />
-            </SocialButton>
+      color={useColorModeValue('gray.700', 'gray.200')}
+      borderTop="1px solid"
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
+    >
+      <Container maxW="6xl" py={6}>
+        <Stack spacing={4} align="center" textAlign="center">
+          <Text fontSize="2xl" fontWeight="bold">
+            jemgdev
+          </Text>
+
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            spacing={4}
+            justify="center"
+            align="center"
+          >
+            <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
+            <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
+            <NavLink
+              href="#github-projects"
+              text="Proyectos de GitHub"
+              scrollToElement="github-projects"
+              onClose={onClose}
+            />
+            <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
+            <NavLink
+              href="#contact-me"
+              text="Contáctame"
+              scrollToElement="contact-me"
+              onClose={onClose}
+            />
           </Stack>
-        </Container>
-      </Box>
+        </Stack>
+
+        <Box mt={6} pt={4} borderTopWidth={1}>
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            spacing={4}
+            justify="space-between"
+            align="center"
+          >
+            <Text fontSize="sm">© 2025 jemgdev. Hecho con ❤️ y tecnología.</Text>
+            <Stack direction="row" spacing={5}>
+              <SocialButton label="GitHub" href="https://github.com/jemgdev">
+                <BsGithub />
+              </SocialButton>
+              <SocialButton label="LinkedIn" href="https://www.linkedin.com/in/jemgdev/">
+                <BsLinkedin />
+              </SocialButton>
+            </Stack>
+          </Stack>
+        </Box>
+      </Container>
     </Box>
   )
 }

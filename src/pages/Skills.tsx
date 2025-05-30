@@ -4,7 +4,9 @@ import {
   SimpleGrid,
   Heading,
   Flex,
-  Image
+  Image,
+  Box,
+  Text
 } from '@chakra-ui/react'
 import scrollReveal from 'scrollreveal'
 import skills from '../services/skills'
@@ -24,15 +26,43 @@ export default function Skills () {
     }
   }, [])
   return (
-    <Element name='skills'>
-      <Heading textAlign='center' fontSize={{ base: '2xl', md: '3xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Mis habilidades técnicas más destacadas</Heading>
-      <Flex justifyContent='center'>
-        <SimpleGrid columns={[2, 3, 4]} columnGap={{ base: '10vh', md: '15vh', lg: '25vh' }} rowGap={{ base: '5vh', md: '5vh', lg: '5vh' }} ref={skillsRef}>
-          {
-            skills.map(skill => <Image key={skill.alt} src={skill.src} alt={skill.alt} />)
-          }
-        </SimpleGrid>
-      </Flex>
+    <Element name="skills">
+      <Box py={{ base: 12, md: 16 }} px={{ base: 4, md: 8 }}>
+        <Heading
+          as="h2"
+          textAlign="center"
+          fontSize={{ base: '2xl', md: '3xl' }}
+          fontWeight="semibold"
+          mb={10}
+        >
+          Mis habilidades más destacadas
+        </Heading>
+
+        <Flex justify="center">
+          <SimpleGrid
+            ref={skillsRef}
+            columns={{ base: 2, sm: 3, md: 4 }}
+            spacing={{ base: 8, md: 12, lg: 16 }}
+          >
+            {skills.map((skill) => (
+              <Box key={skill.alt} textAlign="center">
+                <Image
+                  src={skill.src}
+                  alt={skill.alt}
+                  boxSize={{ base: '60px', md: '80px' }}
+                  mx="auto"
+                  transition="transform 0.2s"
+                  _hover={{ transform: 'scale(1.1)' }}
+                />
+                <Text mt={2} fontSize="sm" color="gray.500">
+                  {skill.alt}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Flex>
+      </Box>
     </Element>
+
   )
 }

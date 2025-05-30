@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Skills from './pages/Skills'
 import ContactMe from './pages/ContactMe'
 import Footer from './components/Footer'
+import SoftSkills from './pages/SoftSkills'
 
 export default function App () {
   return (
@@ -14,6 +15,7 @@ export default function App () {
         <Home />
         <Projects />
         <Skills />
+        <SoftSkills />
         <ContactMe />
       </Container>
       <Footer />

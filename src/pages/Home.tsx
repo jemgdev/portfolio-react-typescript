@@ -2,10 +2,12 @@ import { useRef, useEffect } from 'react'
 import { 
   Text, 
   Container, 
-  Flex
+  Flex,
+  Heading
 } from '@chakra-ui/react'
 import { Element } from 'react-scroll'
 import scrollReveal from 'scrollreveal'
+import { useColorModeValue } from '@chakra-ui/react'
 
 export default function Home () {
   const textNameRef = useRef<HTMLParagraphElement>(null)
@@ -25,13 +27,36 @@ export default function Home () {
   }, [])
 
   return (
-    <Element name='home'>
-      <Flex direction='column' alignItems='center' justifyContent='center' minH='100vh'>
-        <Container maxW='container.md'>
-          <Text fontSize={{ base: '4xl', md: '5xl' }} ref={textNameRef} mb='4vh' textAlign={'center'}>Hola, soy Josué Emmanuel Medina García</Text>
-          <Text fontSize={{ base: '3xl', md: '2xl' }} ref={textDescriptionRef} textAlign={'center'}>Node.js Backend Developer con amplia experiencia en AWS. Apacionado por participar en proyectos desafiantes donde pueda aplicar mis capacidades para desarrollar soluciones que mejoren la vida de las personas mediante la tecnología.</Text>
+    <Element name="home">
+      <Flex
+        direction="column"
+        align="center"
+        justify="center"
+        minH="100vh"
+        px={4}
+        textAlign="center"
+      >
+        <Container maxW="container.md">
+          <Heading
+            as="h1"
+            fontSize={{ base: '3xl', md: '5xl' }}
+            fontWeight="bold"
+            mb={6}
+            ref={textNameRef}
+          >
+            Hola, soy Josué Emmanuel Medina García
+          </Heading>
+
+          <Text
+            fontSize={{ base: 'xl', md: '2xl' }}
+            color={useColorModeValue('gray.700', 'gray.300')}
+            ref={textDescriptionRef}
+          >
+            Desarrollador Backend especializado en Node.js con sólidos conocimientos en soluciones basadas en AWS. Tengo interés en formar parte en proyectos retadores, donde pueda utilizar todas mis habilidades para la creación de soluciones y llevarlas al siguiente nivel. Así poder mejorar la vida de las personas a través de la tecnología.
+          </Text>
         </Container>
       </Flex>
     </Element>
+
   )
 }
