@@ -84,8 +84,33 @@ export default function SoftSkills () {
         </Heading>
         <SimpleGrid columns={{ base: 2, sm: 3, md: 3, lg: 3 }} spacing={{ base: 6, md: 10 }} maxW="5xl" w="full">
           {softSkills.map(({ label, icon, desc }) => {
+            const isMobile = useBreakpointValue({ base: false, md: false })
+            const { isOpen, onOpen, onClose } = useDisclosure()
+            const [clickedLabel, setClickedLabel] = useState<string | null>(null)
+
+            const handleClick = () => {
+              if (isMobile) {
+                if (clickedLabel === label) {
+                  setClickedLabel(null)
+                  onClose()
+                } else {
+                  setClickedLabel(label)
+                  onOpen()
+                }
+              }
+            }
+
+            const isTooltipOpen = isMobile ? clickedLabel === label && isOpen : undefined
+
             return (
-              <Tooltip key={label} label={desc} hasArrow>
+              <Tooltip
+                key={label}
+                label={desc}
+                hasArrow
+                isOpen={isTooltipOpen}
+                closeOnClick={false}
+                openDelay={isMobile ? 0 : 300}
+              >
                 <Flex
                   direction="column"
                   align="center"
@@ -95,6 +120,8 @@ export default function SoftSkills () {
                   p={6}
                   transition="all 0.2s"
                   _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: useColorModeValue('gray.50', 'gray.600') }}
+                  onClick={handleClick}
+                  cursor={isMobile ? 'pointer' : 'default'}
                 >
                   <Box fontSize="2xl" color={useColorModeValue('blue.600', 'blue.300')} mb={3}>
                     {icon}
