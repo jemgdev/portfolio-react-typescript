@@ -1,9 +1,9 @@
 type Project = {
-  code: string
+  code?: string
   description: string
   img: string
   languages: [{ name: string, color: string }]
-  link: string
+  link?: string
   title: string
 }
 

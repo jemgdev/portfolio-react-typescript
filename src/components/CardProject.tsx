@@ -38,8 +38,12 @@ export default function CardProject ({ code, description, img, languages, link, 
         <Center>
           <ButtonGroup variant='ghost'>
             <SimpleGrid columns={[1, null, 2]}>
-              <Button as={'a'} colorScheme='blue' href={link} target='GoClass'>Vista previa</Button>
-              <Button as={'a'} colorScheme='blue' href={code} target='GoClass'>Ver código</Button>
+              {
+                link && <Button as={'a'} colorScheme='blue' href={link} target='GoClass'>Ver proyecto</Button>
+              }
+              {
+                code && <Button as={'a'} colorScheme='blue' href={code} target='GoClass'>Código</Button>
+              }
             </SimpleGrid>
           </ButtonGroup>
         </Center>
