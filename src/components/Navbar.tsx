@@ -28,7 +28,7 @@ export default function Simple() {
       top="0"
       zIndex="1000"
     >
-      <Container maxW="container.lg"> {/* Limitar ancho para centrar */}
+      <Container maxW="container.lg">
         <Flex h={16} alignItems="center" justifyContent="space-between">
           <IconButton
             size="md"
