@@ -70,9 +70,35 @@ export default function ContactMe() {
             <Heading textAlign="center" fontWeight="semibold" fontSize={{ base: '2xl', md: '3xl' }}>
               Contáctame
             </Heading>
-
-            {/* Iconos de redes */}
             <Stack direction="row" spacing={6} justify="center">
+              
+              <Link href="https://www.linkedin.com/in/jemgdev/" isExternal>
+                <IconButton
+                  aria-label="linkedin"
+                  icon={<BsLinkedin size="24px" />}
+                  variant="ghost"
+                  size="lg"
+                  isRound
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                />
+              </Link>
+              <Link href="https://github.com/jemgdev" isExternal>
+                <IconButton
+                  aria-label="github"
+                  icon={<BsGithub />}
+                  variant="ghost"
+                  size="lg"
+                  fontSize="2xl"
+                  isRound
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                />
+              </Link>
               <Tooltip label={hasCopied ? '¡Email copiado!' : 'Copiar email'} hasArrow>
                 <IconButton
                   aria-label="email"
@@ -88,35 +114,6 @@ export default function ContactMe() {
                   }}
                 />
               </Tooltip>
-
-              <Link href="https://github.com/jemgdev" isExternal>
-                <IconButton
-                  aria-label="github"
-                  icon={<BsGithub />}
-                  variant="ghost"
-                  size="lg"
-                  fontSize="2xl"
-                  isRound
-                  _hover={{
-                    bg: 'blue.500',
-                    color: useColorModeValue('white', 'gray.700'),
-                  }}
-                />
-              </Link>
-
-              <Link href="https://www.linkedin.com/in/jemgdev/" isExternal>
-                <IconButton
-                  aria-label="linkedin"
-                  icon={<BsLinkedin size="24px" />}
-                  variant="ghost"
-                  size="lg"
-                  isRound
-                  _hover={{
-                    bg: 'blue.500',
-                    color: useColorModeValue('white', 'gray.700'),
-                  }}
-                />
-              </Link>
             </Stack>
 
             {/* Formulario */}
