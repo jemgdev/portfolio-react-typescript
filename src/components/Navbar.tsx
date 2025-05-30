@@ -5,19 +5,16 @@ import {
   IconButton,
   useDisclosure,
   useColorModeValue,
-  useColorMode,
   Stack,
   Container,
   Collapse,
-  Button,
   Text
 } from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import NavLink from './NavLink'
 
 export default function Simple() {
   const { isOpen, onClose, onToggle } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <Box
@@ -58,11 +55,11 @@ export default function Simple() {
               <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
             </HStack>
           </HStack>
-          <Flex alignItems="end">
+          {/* <Flex alignItems="end">
             <Button onClick={toggleColorMode} variant="ghost" size="md" p={2}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Container>
 
