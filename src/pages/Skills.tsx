@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Element } from 'react-scroll'
 import { 
   SimpleGrid,
-  Text,
+  Heading,
   Flex,
   Image
 } from '@chakra-ui/react'
@@ -25,7 +25,7 @@ export default function Skills () {
   }, [])
   return (
     <Element name='skills'>
-      <Text align='center' fontSize={{ base: '3xl', md: '4xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Mis Skills</Text>
+      <Heading textAlign='center' fontSize={{ base: '2xl', md: '3xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Mis habilidades técnicas más destacadas</Heading>
       <Flex justifyContent='center'>
         <SimpleGrid columns={[2, 3, 4]} columnGap={{ base: '10vh', md: '15vh', lg: '25vh' }} rowGap={{ base: '5vh', md: '5vh', lg: '5vh' }} ref={skillsRef}>
           {

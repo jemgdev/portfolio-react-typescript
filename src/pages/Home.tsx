@@ -28,8 +28,8 @@ export default function Home () {
     <Element name='home'>
       <Flex direction='column' alignItems='center' justifyContent='center' minH='100vh'>
         <Container maxW='container.md'>
-          <Text fontSize={{ base: '4xl', md: '5xl' }} ref={textNameRef} mb='4vh'>Hola, soy Josué Emmanuel Medina García</Text>
-          <Text fontSize={{ base: '2xl', md: '3xl' }} ref={textDescriptionRef}>Soy web developer full stack apasionado por el backend. Me encanta desarrollar sistemas con el fin de automatizar procesos en empresas de cualquier rubro.</Text>
+          <Text fontSize={{ base: '4xl', md: '5xl' }} ref={textNameRef} mb='4vh' textAlign={'center'}>Hola, soy Josué Emmanuel Medina García</Text>
+          <Text fontSize={{ base: '3xl', md: '2xl' }} ref={textDescriptionRef} textAlign={'center'}>Node.js Backend Developer con amplia experiencia en AWS. Apacionado por participar en proyectos desafiantes donde pueda aplicar mis capacidades para desarrollar soluciones que mejoren la vida de las personas mediante la tecnología.</Text>
         </Container>
       </Flex>
     </Element>

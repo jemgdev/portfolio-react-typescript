@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import CardProject from '../components/CardProject'
-import { Text, SimpleGrid} from '@chakra-ui/react'
+import { Heading, SimpleGrid} from '@chakra-ui/react'
 import { getProjects } from '../services/projects'
 import { Element } from 'react-scroll'
 import Project from '../types/Project'
@@ -46,7 +46,7 @@ export default function Projects () {
   
   return (
     <Element name='projects'>
-      <Text align='center' fontSize={{ base: '3xl', md: '4xl' }} fontWeight='semibold' mt='10vh' mb='4vh'>Proyectos</Text>
+      <Heading textAlign='center' fontSize={{ base: '2xl', md: '3xl' }} fontWeight='semibold' mt='10vh' mb='5vh'>Algunos proyectos donde he participado</Heading>
       <SimpleGrid columns={[1, 2, 3]} gap={8} ref={projectsRef}>
         {
           isLoaded 

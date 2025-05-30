@@ -60,17 +60,17 @@ export default function ContactMe() {
       <Flex align="center" justify="center" id="contact">
         <Box borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 4, lg: 8 }}>
           <Box>
-            <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-              <Heading textAlign='center' fontSize={{ base: '3xl', md: '4xl' }}>
+            <VStack spacing={{ base: 4, md: 8, lg: 10 }}>
+              <Heading textAlign='center' fontWeight='semibold' fontSize={{ base: '2xl', md: '3xl' }}>
                 Contáctame
               </Heading>
               <Stack
-                spacing={{ base: 4, md: 8, lg: 20 }}
-                direction={{ base: 'column', md: 'row' }}>
+                spacing={{ base: 4, md: 8, lg: 8 }}
+                direction={{ base: 'column', md: 8, lg: 20 }}>
                 <Stack
                   align="center"
                   justify="space-around"
-                  direction={{ base: 'row', md: 'column' }}>
+                  direction={{ base: 'colum' }}>
                   <Tooltip
                     label={hasCopied ? '¡Email copiado!' : 'Copiar email'}
                     closeOnClick={false}
@@ -133,7 +133,7 @@ export default function ContactMe() {
                         <Input 
                           type="text" 
                           name="name" 
-                          placeholder="Su nombre" 
+                          placeholder="Ingrese su nombre" 
                           value={email.name}
                           onChange={handleChage} 
                         />
@@ -148,7 +148,7 @@ export default function ContactMe() {
                         <Input
                           type="email"
                           name="email"
-                          placeholder="Su email"
+                          placeholder="Ingrese su email"
                           value={email.email}
                           onChange={handleChage}
                         />
@@ -158,7 +158,7 @@ export default function ContactMe() {
                       <FormLabel>Mensaje</FormLabel>
                       <Textarea
                         name="message"
-                        placeholder="Su mensaje"
+                        placeholder="Ingrese su mensaje"
                         rows={6}
                         resize="none"
                         value={email.message}
