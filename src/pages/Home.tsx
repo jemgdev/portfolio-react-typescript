@@ -44,7 +44,7 @@ export default function Home () {
             mb={6}
             ref={textNameRef}
           >
-            Hola, soy Josué Emmanuel Medina García
+            Hola 👋, soy Josué Emmanuel Medina García
           </Heading>
 
           <Text
@@ -52,7 +52,7 @@ export default function Home () {
             color={useColorModeValue('gray.700', 'gray.300')}
             ref={textDescriptionRef}
           >
-            Desarrollador Backend especializado en Node.js con sólidos conocimientos en soluciones basadas en AWS. Tengo interés en formar parte en proyectos retadores, donde pueda utilizar todas mis habilidades para la creación de soluciones y llevarlas al siguiente nivel. Así poder mejorar la vida de las personas a través de la tecnología.
+            Desarrollador Backend Node.js con sólidos conocimientos en soluciones basadas en AWS. Tengo interés en formar parte en proyectos retadores, donde pueda utilizar todas mis habilidades para la creación de soluciones y llevarlas al siguiente nivel. Así poder mejorar la vida de las personas a través de la tecnología.
           </Text>
         </Container>
       </Flex>
