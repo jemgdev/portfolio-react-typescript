@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Element } from 'react-scroll'
 import {
   Heading,
@@ -6,7 +6,10 @@ import {
   Tooltip,
   Box,
   Text,
-  SimpleGrid
+  SimpleGrid,
+  useColorModeValue,
+  useBreakpointValue,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { 
   BsChatDots, 
@@ -17,7 +20,6 @@ import {
   BsPersonPlus
 } from 'react-icons/bs'
 import scrollReveal from 'scrollreveal'
-import { useColorModeValue } from '@chakra-ui/react'
 
 export default function SoftSkills () {
   const skillsRef = useRef<HTMLDivElement>(null)
@@ -81,27 +83,29 @@ export default function SoftSkills () {
           Y sobre todo
         </Heading>
         <SimpleGrid columns={{ base: 2, sm: 3, md: 3, lg: 3 }} spacing={{ base: 6, md: 10 }} maxW="5xl" w="full">
-          {softSkills.map(({ label, icon, desc }) => (
-            <Tooltip key={label} label={desc} hasArrow>
-              <Flex
-                direction="column"
-                align="center"
-                bg={useColorModeValue('white', 'gray.700')}
-                borderRadius="lg"
-                shadow="md"
-                p={6}
-                transition="all 0.2s"
-                _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: useColorModeValue('gray.50', 'gray.600') }}
-              >
-                <Box fontSize="2xl" color={useColorModeValue('blue.600', 'blue.300')} mb={3}>
-                  {icon}
-                </Box>
-                <Text fontWeight="semibold" fontSize="md" textAlign="center">
-                  {label}
-                </Text>
-              </Flex>
-            </Tooltip>
-          ))}
+          {softSkills.map(({ label, icon, desc }) => {
+            return (
+              <Tooltip key={label} label={desc} hasArrow>
+                <Flex
+                  direction="column"
+                  align="center"
+                  bg={useColorModeValue('white', 'gray.700')}
+                  borderRadius="lg"
+                  shadow="md"
+                  p={6}
+                  transition="all 0.2s"
+                  _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: useColorModeValue('gray.50', 'gray.600') }}
+                >
+                  <Box fontSize="2xl" color={useColorModeValue('blue.600', 'blue.300')} mb={3}>
+                    {icon}
+                  </Box>
+                  <Text fontWeight="semibold" fontSize="md" textAlign="center">
+                    {label}
+                  </Text>
+                </Flex>
+              </Tooltip>
+            )}
+          )}
         </SimpleGrid>
       </Flex>
     </Element>
