@@ -66,11 +66,11 @@ export default function ContactMe() {
               </Heading>
               <Stack
                 spacing={{ base: 4, md: 8, lg: 8 }}
-                direction={{ base: 'column', md: 8, lg: 20 }}>
+                direction={'column'}>
                 <Stack
                   align="center"
                   justify="space-around"
-                  direction={{ base: 'colum' }}>
+                  direction={'row'}>
                   <Tooltip
                     label={hasCopied ? '¡Email copiado!' : 'Copiar email'}
                     closeOnClick={false}
