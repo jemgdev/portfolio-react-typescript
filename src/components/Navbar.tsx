@@ -1,4 +1,3 @@
-import NavLink from './NavLink'
 import {
   Box,
   Flex,
@@ -14,6 +13,7 @@ import {
   Text
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import NavLink from './NavLink'
 
 export default function Simple() {
   const { isOpen, onClose, onToggle } = useDisclosure()
@@ -21,7 +21,7 @@ export default function Simple() {
 
   return (
     <Box
-      bg={useColorModeValue('gray.100', 'gray.900')}
+      bg={useColorModeValue('gray.50', 'gray.800')}
       px={{ base: 6, md: 12, lg: 24 }}  // Más padding lateral para escritorio
       boxShadow="md"
       position="sticky"
