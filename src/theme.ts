@@ -1,9 +1,9 @@
 import { extendTheme, ThemeConfig } from '@chakra-ui/react'
 
-const config: ThemeConfig = {
+const config = {
   initialColorMode: 'dark',
   useSystemColorMode: false
-}
+} as ThemeConfig
 
 const theme = extendTheme({ config })
 
