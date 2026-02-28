@@ -60,7 +60,7 @@ export default function Home() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col gap-5"
         >
-          <span className="text-xs font-mono text-accent uppercase tracking-widest">
+          <span className="text-2xl font-extrabold text-accent tracking-tight">
             Senior Backend Developer
           </span>
 
