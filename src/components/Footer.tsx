@@ -15,9 +15,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <a href="#home" className="font-mono text-lg font-semibold hover:opacity-80 transition-opacity">
-            <span className="text-accent">&lt;</span>
-            <span className="text-gray-100">jemgdev</span>
-            <span className="text-accent"> /&gt;</span>
+            <span className="text-accent font-mono">{'>'}_</span>
+            <span className="text-gray-100 font-mono"> jemgdev</span>
           </a>
 
           <nav className="flex flex-wrap justify-center gap-6">

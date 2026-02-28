@@ -22,9 +22,8 @@ export default function Navbar() {
             href="#home"
             className="font-mono text-xl font-semibold hover:opacity-80 transition-opacity"
           >
-            <span className="text-accent">&lt;</span>
-            <span className="text-gray-100">jemgdev</span>
-            <span className="text-accent"> /&gt;</span>
+            <span className="text-accent font-mono">{'>'}_</span>
+            <span className="text-gray-100 font-mono"> jemgdev</span>
           </a>
 
           <div className="hidden md:flex items-center gap-6">
