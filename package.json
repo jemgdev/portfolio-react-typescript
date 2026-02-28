@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.3",
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "vite",
