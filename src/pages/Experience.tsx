@@ -13,6 +13,7 @@ type ExperienceEntry = {
   role: string
   period: string
   current?: boolean
+  tags?: string[]
   highlights: string[]
   projects: ProjectEntry[]
   logo: string
@@ -26,9 +27,10 @@ const experiences: ExperienceEntry[] = [
     role: 'Senior Backend Developer · NestJS',
     period: 'Ene 2026 – Presente',
     current: true,
+    tags: ['Arquitectura Hexagonal', 'DDD', 'CQRS', 'NestJS'],
     highlights: [
-      'Desarrollo de múltiples productos bancarios con NestJS y arquitectura hexagonal.',
-      'Implementación de APIs RESTful con DDD, CQRS y patrones de diseño avanzados.',
+      'Diseño e implementación de arquitectura hexagonal con DDD y CQRS en productos bancarios.',
+      'Definición de contratos de servicios REST y patrones de diseño avanzados.',
       'Integración con servicios AWS y pipelines de CI/CD automatizados.',
     ],
     projects: [
@@ -41,10 +43,11 @@ const experiences: ExperienceEntry[] = [
     logo: 'https://www.wally.tech/hs-fs/hubfs/1-Sep-22-2025-05-39-24-7047-PM.png?width=120&height=33',
     role: 'Senior L1 Backend Developer · Node.js',
     period: 'Oct 2025 – Dic 2025 · 3 meses',
+    tags: ['Microservicios', 'AWS', 'Fintech'],
     highlights: [
-      'Desarrollo de servicios backend para billetera digital con Node.js y AWS.',
-      'Implementación de microservicios escalables con arquitectura cloud-native.',
-      'Integración con servicios financieros y pasarelas de pago.',
+      'Diseño e implementación de microservicios backend para billetera digital con Node.js y AWS.',
+      'Definición de arquitectura cloud-native escalable para servicios financieros.',
+      'Integración con pasarelas de pago y servicios financieros externos.',
     ],
     projects: [
       { name: 'Wally', description: 'Billetera digital. Servicios backend con Node.js y AWS.', link: 'https://www.wally.tech/' },
@@ -56,11 +59,12 @@ const experiences: ExperienceEntry[] = [
     logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
     role: 'Senior L1 Backend Developer · Node.js',
     period: 'Jun 2025 – Oct 2025 · 5 meses',
+    tags: ['Tech Lead', 'IA Generativa', 'AWS Bedrock', 'Terraform'],
     highlights: [
-      'Implementación de AWS Bedrock para análisis automático de CVs con IA generativa.',
-      'Integración con HubSpot para optimizar procesos de selección de talento.',
-      'Definición de arquitectura AWS serverless con Terraform e IaC.',
-      'Desarrollo de herramientas internas de IA para optimización de procesos de RRHH.',
+      'Liderazgo técnico y mentoría del equipo de desarrollo, asegurando buenas prácticas y calidad de código.',
+      'Definición de arquitectura AWS serverless escalable con Terraform e IaC.',
+      'Implementación de soluciones de IA generativa con AWS Bedrock para automatización de procesos de RRHH.',
+      'Integración con HubSpot para optimizar el pipeline de selección de talento.',
     ],
     projects: [
       { name: 'CV Analyzer', description: 'Analizador de hojas de vida con IA. AWS Bedrock, Python, Terraform, HubSpot.' },
@@ -74,11 +78,13 @@ const experiences: ExperienceEntry[] = [
     logo: 'https://www.google.com/s2/favicons?domain=bam.com.gt&sz=64',
     role: 'Advanced L3 / L1 Backend Developer · Node.js',
     period: 'Abr 2023 – Jun 2025 · 2 años 3 meses',
+    tags: ['Tech Lead', 'Arquitectura Cloud', 'Migración AWS', 'Banca'],
     highlights: [
-      'Tech lead en migración completa de infraestructura on-premise a AWS.',
-      'Desarrollo de múltiples productos bancarios digitales de alto impacto en Guatemala.',
-      'Mentoría técnica a equipos de desarrollo y definición de arquitecturas cloud.',
-      'Liderazgo técnico en proyectos con equipos multidisciplinarios y stakeholders del banco.',
+      'Liderazgo técnico en migración completa de infraestructura on-premise a AWS, coordinando equipos multidisciplinarios y stakeholders del banco.',
+      'Participación activa junto a arquitectos de software en la definición de arquitecturas cloud-native y contratos de servicios REST.',
+      'Mentoría técnica a desarrolladores junior y avanzados en backend, AWS, patrones de diseño y CI/CD.',
+      'Desarrollo de múltiples productos bancarios digitales de alto impacto: apertura de cuentas, fidelización, créditos y pagos.',
+      'Gestión de bloqueos técnicos, cambios de alcance y coordinación de despliegues en ambientes dev, QA y producción.',
     ],
     projects: [
       { name: 'Efecto BAM 2.0', description: 'Plataforma de fidelización bancaria (reintegros, puntos, millas). Migración on-premise → AWS.', link: 'https://www.bam.com.gt/efecto-bam/' },
@@ -95,10 +101,11 @@ const experiences: ExperienceEntry[] = [
     logo: 'https://www.google.com/s2/favicons?domain=puntoscolombia.com&sz=64',
     role: 'Junior L3 Backend Developer · Node.js',
     period: 'Mar 2023 · 1 mes',
+    tags: ['Microservicios', 'Serverless', 'AWS'],
     highlights: [
-      'Desarrollo de microservicios de onboarding de clientes a la plataforma de fidelización.',
+      'Desarrollo de microservicios de onboarding de clientes bajo arquitectura hexagonal y Clean Code.',
+      'Análisis funcional con stakeholders para convertir reglas de negocio en soluciones técnicas escalables.',
       'Integración con el ecosistema de puntos canjeables de Puntos Colombia.',
-      'Rápida adaptación al stack técnico en un proyecto ya en marcha.',
     ],
     projects: [
       { name: 'Puntos Colombia', description: 'Plataforma de fidelización por puntos canjeables.', link: 'https://www.puntoscolombia.com/personas/inicio' },
@@ -110,10 +117,11 @@ const experiences: ExperienceEntry[] = [
     logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
     role: 'Junior L3 Backend Developer · Node.js',
     period: '2022',
+    tags: ['Node.js', 'AWS', 'Plataformas Internas'],
     highlights: [
-      'Desarrollo de plataformas internas para el crecimiento y gestión de equipos.',
-      'Implementación de herramientas de datos y automatización de procesos internos.',
-      'Primeros pasos en arquitectura cloud y microservicios con Node.js.',
+      'Diseño e implementación de plataformas internas para gestión del crecimiento profesional de equipos.',
+      'Desarrollo de herramientas de datos y automatización de procesos internos.',
+      'Primeros pasos en arquitectura cloud y microservicios con Node.js y AWS.',
     ],
     projects: [
       { name: 'Orbita', description: 'Plataforma interna de crecimiento y desarrollo profesional para equipos de PRAGMA.' },
@@ -203,7 +211,17 @@ export default function Experience() {
                 </div>
 
                 <p className="text-sm font-medium text-accent mb-1">{exp.role}</p>
-                <p className="text-xs text-muted mb-4">{exp.period}</p>
+                <p className="text-xs text-muted mb-3">{exp.period}</p>
+
+                {exp.tags && exp.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {exp.tags.map((tag, ti) => (
+                      <span key={ti} className="text-xs font-mono px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <ul className="flex flex-col gap-1.5 mb-4">
                   {exp.highlights.map((point, i) => (
