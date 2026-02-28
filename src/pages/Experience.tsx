@@ -36,30 +36,11 @@ const experiences: ExperienceEntry[] = [
     ],
   },
   {
-    client: 'PRAGMA',
-    consultora: 'via PRAGMA',
-    logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
-    role: 'Senior L1 Backend Developer · Node.js',
-    period: 'Ago 2025 – Dic 2025 · 5 meses',
-    highlights: [
-      'Implementación de AWS Bedrock para análisis automático de CVs con IA generativa.',
-      'Integración con HubSpot para optimizar procesos de selección de talento.',
-      'Definición de arquitectura AWS serverless con Terraform e IaC.',
-    ],
-    projects: [
-      { name: 'CV Analyzer', description: 'Analizador de hojas de vida con IA. AWS Bedrock, Python, Terraform, HubSpot.' },
-      { name: 'Orbita', description: 'Plataforma interna de crecimiento y desarrollo profesional para equipos de PRAGMA.' },
-      { name: 'DataCampaign', description: 'Herramienta de gestión y análisis de campañas de datos.' },
-      { name: 'IA EVA', description: 'Filtro de RRHH potenciado por IA: set de preguntas inteligentes para evaluación de candidatos.' },
-      { name: 'Feedback Automático', description: 'IA que analiza proyectos completos en código y genera puntuación de calidad técnica.' },
-    ],
-  },
-  {
     client: 'Wally',
     consultora: 'via PRAGMA',
     logo: 'https://www.wally.tech/hs-fs/hubfs/1-Sep-22-2025-05-39-24-7047-PM.png?width=120&height=33',
-    role: 'Advanced L3 Backend Developer · Node.js',
-    period: 'Oct 2024 – Dic 2024 · 3 meses',
+    role: 'Senior L1 Backend Developer · Node.js',
+    period: 'Oct 2025 – Dic 2025 · 3 meses',
     highlights: [
       'Desarrollo de servicios backend para billetera digital con Node.js y AWS.',
       'Implementación de microservicios escalables con arquitectura cloud-native.',
@@ -70,11 +51,29 @@ const experiences: ExperienceEntry[] = [
     ],
   },
   {
+    client: 'PRAGMA',
+    consultora: 'via PRAGMA',
+    logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
+    role: 'Senior L1 Backend Developer · Node.js',
+    period: 'Jun 2025 – Oct 2025 · 5 meses',
+    highlights: [
+      'Implementación de AWS Bedrock para análisis automático de CVs con IA generativa.',
+      'Integración con HubSpot para optimizar procesos de selección de talento.',
+      'Definición de arquitectura AWS serverless con Terraform e IaC.',
+      'Desarrollo de herramientas internas de IA para optimización de procesos de RRHH.',
+    ],
+    projects: [
+      { name: 'CV Analyzer', description: 'Analizador de hojas de vida con IA. AWS Bedrock, Python, Terraform, HubSpot.' },
+      { name: 'IA EVA', description: 'Filtro de RRHH potenciado por IA: set de preguntas inteligentes para evaluación de candidatos.' },
+      { name: 'Feedback Automático', description: 'IA que analiza proyectos completos en código y genera puntuación de calidad técnica.' },
+    ],
+  },
+  {
     client: 'BAM – Banco Agromercantil',
     consultora: 'via PRAGMA',
     logo: 'https://www.google.com/s2/favicons?domain=bam.com.gt&sz=64',
     role: 'Advanced L3 / L1 Backend Developer · Node.js',
-    period: 'Sep 2022 – Jun 2025 · 2 años 9 meses',
+    period: 'Abr 2023 – Jun 2025 · 2 años 3 meses',
     highlights: [
       'Tech lead en migración completa de infraestructura on-premise a AWS.',
       'Desarrollo de múltiples productos bancarios digitales de alto impacto en Guatemala.',
@@ -103,6 +102,22 @@ const experiences: ExperienceEntry[] = [
     ],
     projects: [
       { name: 'Puntos Colombia', description: 'Plataforma de fidelización por puntos canjeables.', link: 'https://www.puntoscolombia.com/personas/inicio' },
+    ],
+  },
+  {
+    client: 'PRAGMA',
+    consultora: 'via PRAGMA',
+    logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
+    role: 'Junior L3 Backend Developer · Node.js',
+    period: '2022',
+    highlights: [
+      'Desarrollo de plataformas internas para el crecimiento y gestión de equipos.',
+      'Implementación de herramientas de datos y automatización de procesos internos.',
+      'Primeros pasos en arquitectura cloud y microservicios con Node.js.',
+    ],
+    projects: [
+      { name: 'Orbita', description: 'Plataforma interna de crecimiento y desarrollo profesional para equipos de PRAGMA.' },
+      { name: 'DataCampaign', description: 'Herramienta de gestión y análisis de campañas de datos.' },
     ],
   },
 ]
