@@ -45,9 +45,10 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20">
-      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
-        Proyectos destacados
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-3">
+        Proyectos Freelancer
       </h2>
+      <p className="text-muted text-center text-sm mb-12">Proyectos propios actualmente en producción</p>
 
       {error && (
         <p className="text-center text-muted text-sm">

@@ -2,7 +2,7 @@
   {
     "img": "https://via.placeholder.com/390x220/000000/FFFFFF?text=Logifly",
     "title": "Logifly",
-    "category": "Personal",
+    "category": "Freelancer",
     "featured": true,
     "description": "Authentication as a Service (SaaS). Plataforma de autenticación centralizada para múltiples aplicaciones. Gestión de usuarios, roles, sesiones y webhooks. Construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
     "link": "https://logifly.jemgdev.click",
@@ -17,24 +17,9 @@
     ]
   },
   {
-    "img": "https://via.placeholder.com/390x220/232F3E/FF9900?text=CV+Analyzer",
-    "title": "CV Analyzer",
-    "category": "Profesional",
-    "featured": false,
-    "description": "Solución de análisis automático de hojas de vida con IA generativa. Procesa CVs automáticamente, integra con HubSpot y optimiza los tiempos del equipo de selección. Construida con AWS Bedrock, Python y Terraform.",
-    "link": null,
-    "code": null,
-    "languages": [
-      { "name": "Python", "color": "yellow" },
-      { "name": "AWS Bedrock", "color": "orange" },
-      { "name": "Terraform", "color": "purple" },
-      { "name": "HubSpot", "color": "orange" }
-    ]
-  },
-  {
     "img": "https://via.placeholder.com/390x220/2D3748/68D391?text=Mi+Dulce+Tesoro",
     "title": "Mi Dulce Tesoro",
-    "category": "Personal",
+    "category": "Freelancer",
     "featured": false,
     "description": "Sistema POS completo para registro de ventas y administración de productos. Backend Node.js con MySQL, frontend personalizado, despliegue en AWS EC2 con CI/CD automatizado.",
     "link": null,

@@ -48,6 +48,10 @@ const experiences: ExperienceEntry[] = [
     ],
     projects: [
       { name: 'CV Analyzer', description: 'Analizador de hojas de vida con IA. AWS Bedrock, Python, Terraform, HubSpot.' },
+      { name: 'Orbita', description: 'Plataforma interna de crecimiento y desarrollo profesional para equipos de PRAGMA.' },
+      { name: 'DataCampaign', description: 'Herramienta de gestión y análisis de campañas de datos.' },
+      { name: 'IA EVA', description: 'Filtro de RRHH potenciado por IA: set de preguntas inteligentes para evaluación de candidatos.' },
+      { name: 'Feedback Automático', description: 'IA que analiza proyectos completos en código y genera puntuación de calidad técnica.' },
     ],
   },
   {
