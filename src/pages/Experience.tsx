@@ -1,142 +1,98 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 
+type ProjectEntry = {
+  name: string
+  description: string
+  link?: string
+}
+
 type ExperienceEntry = {
-  company: string
+  client: string
+  consultora: string
   role: string
   period: string
-  highlights: string[]
   current?: boolean
-  projects?: { name: string; description: string; link?: string }[]
+  highlights: string[]
+  projects: ProjectEntry[]
 }
 
 const experiences: ExperienceEntry[] = [
   {
-    company: 'QDS - Quality & Development Software SAC',
-    role: 'Senior Backend Developer Node.js',
+    client: 'Kasnet',
+    consultora: 'via QDS',
+    role: 'Senior Backend Developer · NestJS',
     period: 'Ene 2026 – Presente',
     current: true,
     highlights: [
-      'Desarrollo de servicios backend escalables con Node.js y TypeScript.',
-      'Diseño e implementación de APIs RESTful con arquitectura hexagonal.',
-      'Integración con servicios AWS y pipelines de CI/CD.',
+      'Desarrollo de múltiples productos bancarios con NestJS y arquitectura hexagonal.',
+      'Implementación de APIs RESTful con DDD, CQRS y patrones de diseño avanzados.',
+      'Integración con servicios AWS y pipelines de CI/CD automatizados.',
     ],
     projects: [
-      {
-        name: 'Kasnet',
-        description:
-          'Plataforma bancaria con múltiples productos financieros. Backend con NestJS y arquitectura hexagonal.',
-        link: 'https://www.kasnet.com/',
-      },
+      { name: 'Kasnet', description: 'Plataforma bancaria con múltiples productos financieros.', link: 'https://www.kasnet.com/' },
     ],
   },
   {
-    company: 'PRAGMA',
-    role: 'Senior L1 Backend Developer',
+    client: 'PRAGMA',
+    consultora: 'via PRAGMA',
+    role: 'Senior L1 Backend Developer · Node.js',
     period: 'Ago 2025 – Dic 2025 · 5 meses',
     highlights: [
-      'Integración con AWS Bedrock para soluciones de IA generativa.',
-      'Desarrollo de conectores con HubSpot para automatización de CRM.',
-      'Migración de arquitecturas monolíticas a hexagonal e IaC con Terraform.',
+      'Implementación de AWS Bedrock para análisis automático de CVs con IA generativa.',
+      'Integración con HubSpot para optimizar procesos de selección de talento.',
+      'Definición de arquitectura AWS serverless con Terraform e IaC.',
     ],
     projects: [
-      {
-        name: 'CV Analyzer',
-        description:
-          'Analizador de hojas de vida con IA usando AWS Bedrock, Python, Terraform e integración con HubSpot para el equipo de contratación.',
-      },
-      {
-        name: 'Wally',
-        description: 'Billetera digital. Desarrollo backend con Node.js y AWS.',
-        link: 'https://www.wally.tech/',
-      },
+      { name: 'CV Analyzer', description: 'Analizador de hojas de vida con IA. AWS Bedrock, Python, Terraform, HubSpot.' },
     ],
   },
   {
-    company: 'PRAGMA',
-    role: 'Advanced L3 Backend Developer',
-    period: 'Sep 2023 – Ago 2025 · 2 años',
+    client: 'Wally',
+    consultora: 'via PRAGMA',
+    role: 'Advanced L3 Backend Developer · Node.js',
+    period: 'Oct 2024 – Dic 2024 · 3 meses',
     highlights: [
-      'Tech lead en migraciones cloud on-premise → AWS (ECS, Lambda, API Gateway).',
-      'Mentoría técnica a desarrolladores junior y mid-level.',
-      'Definición de arquitecturas con DDD, CQRS y Event-Driven en NestJS.',
+      'Desarrollo de servicios backend para billetera digital con Node.js y AWS.',
+      'Implementación de microservicios escalables con arquitectura cloud-native.',
+      'Integración con servicios financieros y pasarelas de pago.',
     ],
     projects: [
-      {
-        name: 'Efecto BAM 2.0',
-        description:
-          'Plataforma de fidelización bancaria (reintegros, puntos, millas). Migración on-premise → AWS. Tech lead y desarrollo de múltiples APIs.',
-        link: 'https://www.bam.com.gt/efecto-bam/',
-      },
-      {
-        name: 'Extrafinanciamiento',
-        description:
-          'Línea de crédito adicional para tarjetahabientes de BAM. Liderazgo técnico y despliegue en ambientes dev/QA.',
-        link: 'https://www.bam.com.gt/extrafinanciamiento/',
-      },
-      {
-        name: 'Cuenta Fácil e Inversión Virtual',
-        description:
-          '4 productos digitales de bancarización para Guatemala. Desarrollo de componentes críticos de apertura de cuentas.',
-        link: 'https://www.bam.com.gt/personas/cuentas/cuenta-facil/',
-      },
+      { name: 'Wally', description: 'Billetera digital. Servicios backend con Node.js y AWS.', link: 'https://www.wally.tech/' },
     ],
   },
   {
-    company: 'PRAGMA',
-    role: 'Advanced L1 Backend Developer',
-    period: 'Mar 2023 – Sep 2023 · 7 meses',
+    client: 'BAM – Banco Agromercantil',
+    consultora: 'via PRAGMA',
+    role: 'Advanced L3 / L1 Backend Developer · Node.js',
+    period: 'Sep 2022 – Jun 2025 · 2 años 9 meses',
     highlights: [
-      'Desarrollo de backoffice bancario y módulos de pagos con VISA Cybersource.',
-      'Migración de sistemas legacy a microservicios Node.js.',
-      'Implementación de arquitectura hexagonal en proyectos del sector financiero.',
+      'Tech lead en migración completa de infraestructura on-premise a AWS.',
+      'Desarrollo de múltiples productos bancarios digitales de alto impacto en Guatemala.',
+      'Mentoría técnica a equipos de desarrollo y definición de arquitecturas cloud.',
+      'Liderazgo técnico en proyectos con equipos multidisciplinarios y stakeholders del banco.',
     ],
     projects: [
-      {
-        name: 'Orkester',
-        description:
-          'Backoffice bancario de BAM. Mantenimiento evolutivo y nuevas APIs REST sobre plataforma en producción.',
-      },
-      {
-        name: 'Adquirencia - Pago Inmediato',
-        description:
-          'Automatización del cierre de POS para negocios afiliados. Microservicios de conciliación y desembolso financiero.',
-        link: 'https://www.bancolombia.com/empresas/productos-servicios/cash-management/recaudos/ventas-con-tarjeta',
-      },
+      { name: 'Efecto BAM 2.0', description: 'Plataforma de fidelización bancaria (reintegros, puntos, millas). Migración on-premise → AWS.', link: 'https://www.bam.com.gt/efecto-bam/' },
+      { name: 'Extrafinanciamiento', description: 'Línea de crédito adicional para tarjetahabientes. Liderazgo técnico y despliegue.', link: 'https://www.bam.com.gt/extrafinanciamiento/' },
+      { name: 'Cuenta Fácil e Inversión Virtual', description: '4 productos digitales de bancarización para Guatemala.', link: 'https://www.bam.com.gt/personas/cuentas/cuenta-facil/' },
+      { name: 'Orkester', description: 'Backoffice bancario. Mantenimiento evolutivo y nuevas APIs REST en producción.' },
+      { name: 'Adquirencia – Pago Inmediato', description: 'Automatización del cierre de POS. Microservicios de conciliación y desembolso.', link: 'https://www.bancolombia.com/empresas/productos-servicios/cash-management/recaudos/ventas-con-tarjeta' },
+      { name: 'Crezcamos Aliados', description: 'Créditos para pequeños negocios. Microservicios serverless con arquitectura limpia.', link: 'https://www.bam.com.gt/personas/prestamos/bam-aliados/' },
     ],
   },
   {
-    company: 'PRAGMA',
-    role: 'Junior L3 Backend Developer',
-    period: 'Sep 2022 – Mar 2023 · 7 meses',
+    client: 'Puntos Colombia',
+    consultora: 'via PRAGMA',
+    role: 'Junior L3 Backend Developer · Node.js',
+    period: 'Mar 2023 · 1 mes',
     highlights: [
-      'Construcción de microservicios con NestJS para el sector bancario.',
-      'Adopción de arquitectura hexagonal y patrones DDD en nuevos servicios.',
-      'Integración con colas de mensajería SQS y eventos SNS en AWS.',
+      'Desarrollo de microservicios de onboarding de clientes a la plataforma de fidelización.',
+      'Integración con el ecosistema de puntos canjeables de Puntos Colombia.',
+      'Rápida adaptación al stack técnico en un proyecto ya en marcha.',
     ],
     projects: [
-      {
-        name: 'Crezcamos Aliados',
-        description:
-          'Programa de créditos para pequeños negocios de BAM. Microservicios serverless con arquitectura limpia y Jest.',
-        link: 'https://www.bam.com.gt/personas/prestamos/bam-aliados/',
-      },
-      {
-        name: 'Puntos Colombia',
-        description:
-          'Plataforma de fidelización por puntos. Microservicios de onboarding de clientes.',
-        link: 'https://www.puntoscolombia.com/personas/inicio',
-      },
-    ],
-  },
-  {
-    company: 'PROYECTO ESPECIAL BINACIONAL PUYANGO-TUMBES',
-    role: 'Asistente de Soporte TI',
-    period: 'Mar 2022 – Jun 2022 · 4 meses',
-    highlights: [
-      'Administración de Windows Server y SQL Server para servicios internos.',
-      'Soporte técnico de redes y mantenimiento de infraestructura local.',
-      'Gestión de usuarios y permisos en sistemas de la institución.',
+      { name: 'Puntos Colombia', description: 'Plataforma de fidelización por puntos canjeables.', link: 'https://www.puntoscolombia.com/personas/inicio' },
     ],
   },
 ]
@@ -183,7 +139,14 @@ export default function Experience() {
               {/* Card */}
               <div className="flex-1 bg-surface border border-border rounded-xl p-5 hover:border-accent/40 transition-colors">
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                  <h3 className="font-semibold text-gray-100 text-sm sm:text-base">{exp.company}</h3>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="font-semibold text-gray-100 text-sm sm:text-base">{exp.client}</h3>
+                    {exp.consultora && (
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-surface border border-border text-muted">
+                        {exp.consultora}
+                      </span>
+                    )}
+                  </div>
                   {exp.current && (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-accent/20 text-accent border border-accent/30">
                       Actual
