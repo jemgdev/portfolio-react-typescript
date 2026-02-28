@@ -68,6 +68,15 @@ export default function Home() {
             Hola, soy <span className="text-accent">Josué</span>
           </h1>
 
+          {/* Badge strip */}
+          <div className="flex flex-wrap gap-1.5">
+            {['AWS Certified', 'Node.js', 'TypeScript', 'NestJS', 'Serverless', 'Docker', 'SQL', 'NoSQL', 'AI Agent', 'MCP', 'Scrum'].map((tag) => (
+              <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-full bg-surface border border-border text-muted">
+                {tag}
+              </span>
+            ))}
+          </div>
+
           <p className="text-gray-400 leading-relaxed max-w-lg">
             Construyo sistemas backend escalables con <span className="text-gray-100">Node.js</span>, <span className="text-gray-100">NestJS</span> y <span className="text-gray-100">AWS</span>. Especializado en arquitectura hexagonal, DDD y CQRS — llevando soluciones al siguiente nivel.
           </p>
