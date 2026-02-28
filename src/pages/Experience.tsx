@@ -15,12 +15,14 @@ type ExperienceEntry = {
   current?: boolean
   highlights: string[]
   projects: ProjectEntry[]
+  logo: string
 }
 
 const experiences: ExperienceEntry[] = [
   {
     client: 'Kasnet',
     consultora: 'via QDS',
+    logo: 'https://www.google.com/s2/favicons?domain=kasnet.com&sz=64',
     role: 'Senior Backend Developer · NestJS',
     period: 'Ene 2026 – Presente',
     current: true,
@@ -36,6 +38,7 @@ const experiences: ExperienceEntry[] = [
   {
     client: 'PRAGMA',
     consultora: 'via PRAGMA',
+    logo: 'https://www.google.com/s2/favicons?domain=pragma.co&sz=64',
     role: 'Senior L1 Backend Developer · Node.js',
     period: 'Ago 2025 – Dic 2025 · 5 meses',
     highlights: [
@@ -50,6 +53,7 @@ const experiences: ExperienceEntry[] = [
   {
     client: 'Wally',
     consultora: 'via PRAGMA',
+    logo: 'https://www.wally.tech/hs-fs/hubfs/1-Sep-22-2025-05-39-24-7047-PM.png?width=120&height=33',
     role: 'Advanced L3 Backend Developer · Node.js',
     period: 'Oct 2024 – Dic 2024 · 3 meses',
     highlights: [
@@ -64,6 +68,7 @@ const experiences: ExperienceEntry[] = [
   {
     client: 'BAM – Banco Agromercantil',
     consultora: 'via PRAGMA',
+    logo: 'https://www.google.com/s2/favicons?domain=bam.com.gt&sz=64',
     role: 'Advanced L3 / L1 Backend Developer · Node.js',
     period: 'Sep 2022 – Jun 2025 · 2 años 9 meses',
     highlights: [
@@ -84,6 +89,7 @@ const experiences: ExperienceEntry[] = [
   {
     client: 'Puntos Colombia',
     consultora: 'via PRAGMA',
+    logo: 'https://www.google.com/s2/favicons?domain=puntoscolombia.com&sz=64',
     role: 'Junior L3 Backend Developer · Node.js',
     period: 'Mar 2023 · 1 mes',
     highlights: [
@@ -139,13 +145,36 @@ export default function Experience() {
               {/* Card */}
               <div className="flex-1 bg-surface border border-border rounded-xl p-5 hover:border-accent/40 transition-colors">
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="font-semibold text-gray-100 text-sm sm:text-base">{exp.client}</h3>
-                    {exp.consultora && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-surface border border-border text-muted">
-                        {exp.consultora}
-                      </span>
-                    )}
+                  <div className="flex items-center gap-3">
+                    {exp.logo ? (
+                      <img
+                        src={exp.logo}
+                        alt={exp.client}
+                        width={40}
+                        height={40}
+                        className="w-10 h-10 rounded-lg object-contain bg-white p-1.5 flex-shrink-0"
+                        onError={(e) => {
+                          const target = e.currentTarget
+                          target.style.display = 'none'
+                          const fallback = target.nextElementSibling as HTMLElement | null
+                          if (fallback) fallback.style.display = 'flex'
+                        }}
+                      />
+                    ) : null}
+                    <div
+                      className="w-9 h-9 rounded-lg bg-surface border border-border text-accent font-mono text-sm items-center justify-center flex-shrink-0"
+                      style={{ display: 'none' }}
+                    >
+                      {exp.client.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="font-semibold text-gray-100 text-sm sm:text-base">{exp.client}</h3>
+                      {exp.consultora && (
+                        <span className="text-xs px-2 py-0.5 rounded-full bg-surface border border-border text-muted">
+                          {exp.consultora}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   {exp.current && (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-accent/20 text-accent border border-accent/30">

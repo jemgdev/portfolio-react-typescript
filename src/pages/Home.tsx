@@ -3,10 +3,11 @@ import { motion } from 'framer-motion'
 import { Github, Linkedin, ArrowRight } from 'lucide-react'
 
 const terminalLines = [
-  { prompt: '>', command: 'whoami', output: 'josue@jemgdev' },
-  { prompt: '>', command: 'skills', output: '["Node.js", "NestJS", "AWS", "TypeScript"]' },
-  { prompt: '>', command: 'experience', output: '"5+ años en backend"' },
-  { prompt: '>', command: 'status', output: '"Disponible para proyectos"' },
+  { prompt: '>', command: 'whoami', output: '"Josué Emmanuel Medina García"' },
+  { prompt: '>', command: 'role', output: '"Senior Backend Developer · AWS Certified"' },
+  { prompt: '>', command: 'skills', output: '["Node.js", "NestJS", "AWS", "TypeScript", "Docker"]' },
+  { prompt: '>', command: 'experience', output: '"5+ años en backend · Banca · Fintech · SaaS"' },
+  { prompt: '>', command: 'status', output: '"Trabajando en QDS · Perú 🇵🇪"' },
 ]
 
 function TerminalBlock() {
@@ -64,11 +65,11 @@ export default function Home() {
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-100 leading-tight">
-            Hola, soy Josué
+            Hola, soy <span className="text-accent">Josué</span>
           </h1>
 
-          <h2 className="text-xl sm:text-2xl font-medium text-muted">
-            Emmanuel Medina García
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-300">
+            Medina García
           </h2>
 
           <p className="text-gray-400 leading-relaxed max-w-lg">

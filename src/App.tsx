@@ -6,6 +6,7 @@ import ContactMe from './pages/ContactMe'
 import Footer from './components/Footer'
 import SoftSkills from './pages/SoftSkills'
 import Experience from './pages/Experience'
+import Certifications from './pages/Certifications'
 
 export default function App () {
   return (
@@ -15,6 +16,7 @@ export default function App () {
         <Home />
         <Experience />
         <Projects />
+        <Certifications />
         <Skills />
         <SoftSkills />
         <ContactMe />
