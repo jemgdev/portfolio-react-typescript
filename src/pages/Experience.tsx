@@ -30,6 +30,7 @@ const experiences: ExperienceEntry[] = [
     tags: ['Arquitectura Hexagonal', 'DDD', 'CQRS', 'NestJS'],
     highlights: [
       'Diseño e implementación de arquitectura hexagonal con DDD y CQRS en productos bancarios.',
+      'Cooperación activa con arquitectos de software en la definición de arquitecturas AWS, diseño de componentes cloud y contratos de servicios REST.',
       'Definición de contratos de servicios REST y patrones de diseño avanzados.',
       'Integración con servicios AWS y pipelines de CI/CD automatizados.',
     ],
