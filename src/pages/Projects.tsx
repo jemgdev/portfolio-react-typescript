@@ -68,97 +68,9 @@ export default function Projects() {
 
       {isLoaded && !error && (
         <>
-          {/* Featured card */}
-          {featured && (
-            <div
-              className="rounded-xl overflow-hidden mb-8 flex flex-col md:flex-row bg-surface"
-              style={{
-                border: '1px solid transparent',
-                backgroundImage:
-                  'linear-gradient(#111827, #111827), linear-gradient(135deg, #4f8ef7, #4f8ef720)',
-                backgroundOrigin: 'border-box',
-                backgroundClip: 'padding-box, border-box',
-              }}
-            >
-              {/* Visual header instead of image */}
-              <div className="relative w-full md:w-2/5 h-48 md:h-auto bg-gradient-to-br from-bg via-surface to-bg flex items-center justify-center border-b md:border-b-0 md:border-r border-border flex-shrink-0">
-                <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: 'radial-gradient(circle at 30% 50%, #4f8ef7 0%, transparent 60%)'
-                }} />
-                {featured.logo ? (
-                  <div className="w-24 h-24 bg-white rounded-2xl p-3 flex items-center justify-center shadow-xl z-10">
-                    <img src={featured.logo} alt={featured.title} className="w-full h-full object-contain" />
-                  </div>
-                ) : (
-                  <div className="w-24 h-24 bg-bg border border-border rounded-2xl flex items-center justify-center z-10">
-                    <span className="text-accent font-mono text-3xl font-bold">{featured.title.slice(0, 2).toUpperCase()}</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex flex-col justify-between flex-1">
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    {featured.logo && (
-                      <div className="w-9 h-9 bg-white rounded-lg p-1.5 flex-shrink-0 flex items-center justify-center">
-                        <img src={featured.logo} alt={featured.title} className="w-full h-full object-contain" />
-                      </div>
-                    )}
-                    <h3 className="font-bold text-2xl text-gray-100">{featured.title}</h3>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                      {featured.category}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {featured.languages.map((language) => (
-                      <span
-                        key={language.name}
-                        className="text-xs font-mono px-2 py-0.5 rounded-full bg-bg border border-border text-muted"
-                      >
-                        {language.name}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    {featured.description}
-                  </p>
-                </div>
-
-                {(featured.link || featured.code) && (
-                  <div className="px-6 pb-6 flex gap-3">
-                    {featured.link && (
-                      <a
-                        href={featured.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
-                      >
-                        <ExternalLink size={14} />
-                        Ver proyecto
-                      </a>
-                    )}
-                    {featured.code && (
-                      <a
-                        href={featured.code}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 px-4 py-2 border border-border text-muted text-sm font-medium rounded-lg hover:border-accent/40 hover:text-gray-100 transition-colors"
-                      >
-                        <Code2 size={14} />
-                        Código
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* 2-column grid */}
+          {/* 2-column grid — all projects */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {rest.map((project) => (
+            {projects.map((project) => (
               <CardProject key={project.title} {...project} />
             ))}
           </div>
