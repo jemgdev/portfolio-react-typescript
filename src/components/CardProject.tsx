@@ -1,7 +1,7 @@
 import { ExternalLink, Code2 } from 'lucide-react'
 import Project from '../types/Project'
 
-export default function CardProject({ code, description, img, languages, link, title, category }: Project) {
+export default function CardProject({ code, description, img, languages, link, title, category, logo }: Project) {
   return (
     <div className="bg-surface border border-border rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-accent/30 transition-all duration-200">
       <div className="relative">
@@ -20,7 +20,14 @@ export default function CardProject({ code, description, img, languages, link, t
       </div>
 
       <div className="p-5 flex-1 flex flex-col">
-        <h3 className="font-bold text-lg text-gray-100 mb-3">{title}</h3>
+        <div className="flex items-center gap-3 mb-3">
+          {logo && (
+            <div className="w-8 h-8 bg-white rounded-lg p-1 flex-shrink-0 flex items-center justify-center">
+              <img src={logo} alt={title} className="w-full h-full object-contain" />
+            </div>
+          )}
+          <h3 className="font-bold text-lg text-gray-100">{title}</h3>
+        </div>
 
         <div className="flex flex-wrap gap-1.5 mb-3">
           {languages.map((language) => (

@@ -89,6 +89,11 @@ export default function Projects() {
               <div className="flex flex-col justify-between flex-1">
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
+                    {featured.logo && (
+                      <div className="w-9 h-9 bg-white rounded-lg p-1.5 flex-shrink-0 flex items-center justify-center">
+                        <img src={featured.logo} alt={featured.title} className="w-full h-full object-contain" />
+                      </div>
+                    )}
                     <h3 className="font-bold text-2xl text-gray-100">{featured.title}</h3>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                       {featured.category}

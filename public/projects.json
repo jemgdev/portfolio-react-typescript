@@ -4,6 +4,7 @@
     "title": "Logifly",
     "category": "Freelancer",
     "featured": true,
+    "logo": "https://logifly.jemgdev.click/favicon.svg",
     "description": "Authentication as a Service (SaaS). Plataforma de autenticación centralizada para múltiples aplicaciones. Gestión de usuarios, roles, sesiones y webhooks. Construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
     "link": "https://logifly.jemgdev.click",
     "code": "https://github.com/jemgdev/logifly",
@@ -21,8 +22,9 @@
     "title": "Mi Dulce Tesoro",
     "category": "Freelancer",
     "featured": false,
+    "logo": "https://www.google.com/s2/favicons?domain=midulcetesoro.jemgdev.click&sz=64",
     "description": "Sistema POS completo para registro de ventas y administración de productos. Backend Node.js con MySQL, frontend personalizado, despliegue en AWS EC2 con CI/CD automatizado.",
-    "link": null,
+    "link": "https://midulcetesoro.jemgdev.click/",
     "code": null,
     "languages": [
       { "name": "Node.js", "color": "green" },

@@ -3,6 +3,7 @@ type Project = {
   title: string
   category: string
   featured: boolean
+  logo?: string
   description: string
   link: string | null
   code: string | null
