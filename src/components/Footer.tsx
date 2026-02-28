@@ -68,20 +68,10 @@ export default function Footer() {
             align="center"
           >
             <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
+            <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
             <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
-            <NavLink
-              href="#github-projects"
-              text="Proyectos de GitHub"
-              scrollToElement="github-projects"
-              onClose={onClose}
-            />
             <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
-            <NavLink
-              href="#contact-me"
-              text="Contáctame"
-              scrollToElement="contact-me"
-              onClose={onClose}
-            />
+            <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
           </Stack>
         </Stack>
 
@@ -92,7 +82,7 @@ export default function Footer() {
             justify="space-between"
             align="center"
           >
-            <Text fontSize="sm">© 2025 jemgdev. Hecho con ❤️ y tecnología.</Text>
+            <Text fontSize="sm">© 2026 jemgdev. Hecho con ❤️ y tecnología.</Text>
             <Stack direction="row" spacing={5}>
               <SocialButton label="GitHub" href="https://github.com/jemgdev">
                 <BsGithub />

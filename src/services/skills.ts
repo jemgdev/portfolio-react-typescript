@@ -21,8 +21,16 @@ const skills: skill[] = [
     alt: 'typescript'
   },
   {
+    src: 'https://img.icons8.com/color/144/nestjs.png',
+    alt: 'nestjs'
+  },
+  {
     src: 'https://img.icons8.com/color/144/000000/mysql-logo.png',
     alt: 'mysql'
+  },
+  {
+    src: 'https://img.icons8.com/color/144/postgresql.png',
+    alt: 'postgresql'
   },
   {
     src: 'https://img.icons8.com/color/144/000000/git.png',

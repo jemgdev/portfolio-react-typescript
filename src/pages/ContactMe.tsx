@@ -31,7 +31,7 @@ export default function ContactMe() {
   const [ email, setEmail ] = useState<Contact>(initValues)
   const toast = useToast()
 
-  const handleChage = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setEmail({
       ...email,
       [event.target.name]: event.target.value
@@ -134,7 +134,7 @@ export default function ContactMe() {
                       name="name"
                       placeholder="Ingrese su nombre"
                       value={email.name}
-                      onChange={handleChage}
+                      onChange={handleChange}
                     />
                   </InputGroup>
                 </FormControl>
@@ -148,7 +148,7 @@ export default function ContactMe() {
                       name="email"
                       placeholder="Ingrese su email"
                       value={email.email}
-                      onChange={handleChage}
+                      onChange={handleChange}
                     />
                   </InputGroup>
                 </FormControl>
@@ -161,7 +161,7 @@ export default function ContactMe() {
                     rows={6}
                     resize="none"
                     value={email.message}
-                    onChange={handleChage}
+                    onChange={handleChange}
                   />
                 </FormControl>
 

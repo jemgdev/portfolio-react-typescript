@@ -200,5 +200,34 @@
                 "color": "blue"
             }
         ]
+    },
+    {
+        "img": "https://via.placeholder.com/390x220/4A90D9/FFFFFF?text=Logifly",
+        "title": "Logifly",
+        "description": "Authentication as a Service (SaaS). Plataforma de autenticación escalable construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
+        "link": "https://logifly.jemgdev.click",
+        "code": "https://github.com/jemgdev/logifly",
+        "languages": [
+            {
+                "name": "TypeScript",
+                "color": "blue"
+            },
+            {
+                "name": "AWS Lambda",
+                "color": "orange"
+            },
+            {
+                "name": "Cognito",
+                "color": "messenger"
+            },
+            {
+                "name": "DynamoDB",
+                "color": "linkedin"
+            },
+            {
+                "name": "Serverless",
+                "color": "red"
+            }
+        ]
     }
 ]

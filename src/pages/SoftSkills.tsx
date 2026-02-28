@@ -11,17 +11,77 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react'
-import { 
-  BsChatDots, 
+import {
+  BsChatDots,
   BsPeople,
-  BsArrowRepeat, 
-  BsDiagram3, 
+  BsArrowRepeat,
+  BsDiagram3,
   BsBook,
   BsPersonPlus
 } from 'react-icons/bs'
+import { IconType } from 'react-icons'
 import scrollReveal from 'scrollreveal'
 
-export default function SoftSkills () {
+type SoftSkillCardProps = {
+  label: string
+  icon: ReturnType<IconType>
+  desc: string
+}
+
+function SoftSkillCard({ label, icon, desc }: SoftSkillCardProps) {
+  const isMobile = useBreakpointValue({ base: false, md: false })
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [clicked, setClicked] = useState(false)
+  const bg = useColorModeValue('white', 'gray.700')
+  const hoverBg = useColorModeValue('gray.50', 'gray.600')
+  const iconColor = useColorModeValue('blue.600', 'blue.300')
+
+  const handleClick = () => {
+    if (isMobile) {
+      if (clicked) {
+        setClicked(false)
+        onClose()
+      } else {
+        setClicked(true)
+        onOpen()
+      }
+    }
+  }
+
+  const isTooltipOpen = isMobile ? clicked && isOpen : undefined
+
+  return (
+    <Tooltip
+      label={desc}
+      hasArrow
+      isOpen={isTooltipOpen}
+      closeOnClick={false}
+      openDelay={isMobile ? 0 : 300}
+    >
+      <Flex
+        direction="column"
+        align="center"
+        bg={bg}
+        borderRadius="lg"
+        shadow="md"
+        p={6}
+        transition="all 0.2s"
+        _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: hoverBg }}
+        onClick={handleClick}
+        cursor={isMobile ? 'pointer' : 'default'}
+      >
+        <Box fontSize="2xl" color={iconColor} mb={3}>
+          {icon}
+        </Box>
+        <Text fontWeight="semibold" fontSize="md" textAlign="center">
+          {label}
+        </Text>
+      </Flex>
+    </Tooltip>
+  )
+}
+
+export default function SoftSkills() {
   const skillsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -36,42 +96,35 @@ export default function SoftSkills () {
     }
   }, [])
 
-
   const softSkills = [
     {
       label: 'Comunicación',
       icon: <BsChatDots />,
-      angle: 0,
       desc: 'Expreso ideas con claridad y escucho con atención.',
     },
     {
       label: 'Trabajo en equipo',
       icon: <BsPeople />,
-      angle: 60,
       desc: 'Fomento la colaboración y el trabajo en equipo.',
     },
     {
       label: 'Liderazgo',
       icon: <BsPersonPlus />,
-      angle: 120,
       desc: 'Empodero al equipo con mis conocimientos y tomo la iniciativa en pro de cumplir con los objetivos.',
     },
     {
       label: 'Adaptabilidad',
       icon: <BsArrowRepeat />,
-      angle: 180,
       desc: 'Me adapto rápidamente a cambios y nuevos desafíos.',
     },
     {
       label: 'Pensamiento crítico',
       icon: <BsDiagram3 />,
-      angle: 240,
       desc: 'Analizo situaciones y resuelvo problemas en base a la lógica.',
     },
     {
       label: 'Aprendizaje continuo',
       icon: <BsBook />,
-      angle: 300,
       desc: 'Siempre busco aprender y mejorar mis habilidades.'
     }
   ]
@@ -82,57 +135,10 @@ export default function SoftSkills () {
         <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="semibold" textAlign="center" mb={8}>
           Y sobre todo
         </Heading>
-        <SimpleGrid columns={{ base: 2, sm: 3, md: 3, lg: 3 }} spacing={{ base: 6, md: 10 }} maxW="5xl" w="full">
-          {softSkills.map(({ label, icon, desc }) => {
-            const isMobile = useBreakpointValue({ base: false, md: false })
-            const { isOpen, onOpen, onClose } = useDisclosure()
-            const [clickedLabel, setClickedLabel] = useState<string | null>(null)
-
-            const handleClick = () => {
-              if (isMobile) {
-                if (clickedLabel === label) {
-                  setClickedLabel(null)
-                  onClose()
-                } else {
-                  setClickedLabel(label)
-                  onOpen()
-                }
-              }
-            }
-
-            const isTooltipOpen = isMobile ? clickedLabel === label && isOpen : undefined
-
-            return (
-              <Tooltip
-                key={label}
-                label={desc}
-                hasArrow
-                isOpen={isTooltipOpen}
-                closeOnClick={false}
-                openDelay={isMobile ? 0 : 300}
-              >
-                <Flex
-                  direction="column"
-                  align="center"
-                  bg={useColorModeValue('white', 'gray.700')}
-                  borderRadius="lg"
-                  shadow="md"
-                  p={6}
-                  transition="all 0.2s"
-                  _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: useColorModeValue('gray.50', 'gray.600') }}
-                  onClick={handleClick}
-                  cursor={isMobile ? 'pointer' : 'default'}
-                >
-                  <Box fontSize="2xl" color={useColorModeValue('blue.600', 'blue.300')} mb={3}>
-                    {icon}
-                  </Box>
-                  <Text fontWeight="semibold" fontSize="md" textAlign="center">
-                    {label}
-                  </Text>
-                </Flex>
-              </Tooltip>
-            )}
-          )}
+        <SimpleGrid ref={skillsRef} columns={{ base: 2, sm: 3, md: 3, lg: 3 }} spacing={{ base: 6, md: 10 }} maxW="5xl" w="full">
+          {softSkills.map(({ label, icon, desc }) => (
+            <SoftSkillCard key={label} label={label} icon={icon} desc={desc} />
+          ))}
         </SimpleGrid>
       </Flex>
     </Element>

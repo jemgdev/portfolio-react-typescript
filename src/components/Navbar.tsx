@@ -19,7 +19,7 @@ export default function Simple() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.800')}
-      px={{ base: 6, md: 12, lg: 24 }}  // Más padding lateral para escritorio
+      px={{ base: 6, md: 12, lg: 24 }}
       boxShadow="md"
       position="sticky"
       top="0"
@@ -50,16 +50,12 @@ export default function Simple() {
               display={{ base: 'none', md: 'flex' }}
             >
               <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
+              <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
               <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
               <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
               <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
             </HStack>
           </HStack>
-          {/* <Flex alignItems="end">
-            <Button onClick={toggleColorMode} variant="ghost" size="md" p={2}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
-          </Flex> */}
         </Flex>
       </Container>
 
@@ -67,8 +63,8 @@ export default function Simple() {
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as="nav" spacing={4}>
             <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
+            <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
             <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
-            <NavLink href="#github-projects" text="Proyectos de github" scrollToElement="github-projects" onClose={onClose} />
             <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
             <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
           </Stack>

@@ -6,6 +6,7 @@ import Skills from './pages/Skills'
 import ContactMe from './pages/ContactMe'
 import Footer from './components/Footer'
 import SoftSkills from './pages/SoftSkills'
+import Experience from './pages/Experience'
 
 export default function App () {
   return (
@@ -13,6 +14,7 @@ export default function App () {
       <Navbar />
       <Container maxW='container.xl'>
         <Home />
+        <Experience />
         <Projects />
         <Skills />
         <SoftSkills />

@@ -52,7 +52,7 @@ export default function Home () {
             color={useColorModeValue('gray.700', 'gray.300')}
             ref={textDescriptionRef}
           >
-            Desarrollador Backend Node.js con sólidos conocimientos en soluciones basadas en AWS. Tengo interés en formar parte en proyectos retadores, donde pueda utilizar todas mis habilidades para la creación de soluciones y llevarlas al siguiente nivel. Así poder mejorar la vida de las personas a través de la tecnología.
+            Senior Backend Developer con 5+ años de experiencia construyendo sistemas escalables con Node.js, NestJS y AWS. Especializado en arquitectura hexagonal, DDD y CQRS. AWS Certified — apasionado por llevar soluciones al siguiente nivel con tecnología de calidad.
           </Text>
         </Container>
       </Flex>
