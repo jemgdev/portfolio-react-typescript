@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar'
-import { Container } from '@chakra-ui/react'
 import Projects from './pages/Projects'
 import Home from './pages/Home'
 import Skills from './pages/Skills'
@@ -10,17 +9,17 @@ import Experience from './pages/Experience'
 
 export default function App () {
   return (
-    <>
+    <div className="bg-bg text-gray-100 font-sans">
       <Navbar />
-      <Container maxW='container.xl'>
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Home />
         <Experience />
         <Projects />
         <Skills />
         <SoftSkills />
         <ContactMe />
-      </Container>
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }

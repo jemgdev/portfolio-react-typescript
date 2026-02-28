@@ -1,186 +1,152 @@
 import { useState, ChangeEvent } from 'react'
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  IconButton,
-  Input,
-  InputGroup,
-  Link,
-  Stack,
-  Textarea,
-  Tooltip,
-  useClipboard,
-  useColorModeValue,
-  InputLeftAddon,
-  VStack
-} from '@chakra-ui/react'
-import { Element } from 'react-scroll'
-import { BsGithub, BsLinkedin, BsPerson } from 'react-icons/bs'
-import { MdEmail, MdOutlineEmail } from 'react-icons/md'
+import { Github, Linkedin, Mail, Copy, Check, Send } from 'lucide-react'
 import Contact from '../types/Contact'
 import sendEmail from '../services/sendEmail'
-import { useToast } from '@chakra-ui/react'
 
 export default function ContactMe() {
-  const initValues = { email: '', name: '', message: '' }
-  const { hasCopied, onCopy } = useClipboard('jemgdev@gmail.com')
-  const [ email, setEmail ] = useState<Contact>(initValues)
-  const toast = useToast()
+  const initValues: Contact = { email: '', name: '', message: '' }
+  const [form, setForm] = useState<Contact>(initValues)
+  const [copied, setCopied] = useState(false)
+  const [feedback, setFeedback] = useState<{ message: string; ok: boolean } | null>(null)
+  const [sending, setSending] = useState(false)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setEmail({
-      ...email,
-      [event.target.name]: event.target.value
-    })
+    setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  const handleSendEmail = () => {
-    sendEmail(email)
-      .then(emailResponse => {
-        const { message, ok, status } = emailResponse
-        if (ok) setEmail(initValues)
-        toast({
-          title: 'Envio de email',
-          description: message,
-          status,
-          duration: 3000,
-          variant: 'top-accent',
-          position: 'top-right',
-          isClosable: true,
-        })
-      })
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('jemgdev@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleSend = async () => {
+    setSending(true)
+    setFeedback(null)
+    const response = await sendEmail(form)
+    setFeedback({ message: response.message, ok: response.ok })
+    if (response.ok) setForm(initValues)
+    setSending(false)
   }
 
   return (
-    <Element name="contact-me">
-      <Flex align="center" justify="center" id="contact" py={{ base: 10, md: 16 }}>
-        <Box
-          borderRadius="lg"
-          maxW="800px"
-          w="full"
-          p={{ base: 4, md: 8 }}
-          bg={useColorModeValue('gray.50', 'gray.800')}
-          boxShadow="md"
-        >
-          <VStack spacing={8}>
-            <Heading textAlign="center" fontWeight="semibold" fontSize={{ base: '2xl', md: '3xl' }}>
-              Contáctame
-            </Heading>
-            <Stack direction="row" spacing={6} justify="center">
-              
-              <Link href="https://www.linkedin.com/in/jemgdev/" isExternal>
-                <IconButton
-                  aria-label="linkedin"
-                  icon={<BsLinkedin size="24px" />}
-                  variant="ghost"
-                  size="lg"
-                  isRound
-                  _hover={{
-                    bg: 'blue.500',
-                    color: useColorModeValue('white', 'gray.700'),
-                  }}
-                />
-              </Link>
-              <Link href="https://github.com/jemgdev" isExternal>
-                <IconButton
-                  aria-label="github"
-                  icon={<BsGithub />}
-                  variant="ghost"
-                  size="lg"
-                  fontSize="2xl"
-                  isRound
-                  _hover={{
-                    bg: 'blue.500',
-                    color: useColorModeValue('white', 'gray.700'),
-                  }}
-                />
-              </Link>
-              <Tooltip label={hasCopied ? '¡Email copiado!' : 'Copiar email'} hasArrow>
-                <IconButton
-                  aria-label="email"
-                  icon={<MdEmail />}
-                  variant="ghost"
-                  size="lg"
-                  fontSize="2xl"
-                  onClick={onCopy}
-                  isRound
-                  _hover={{
-                    bg: 'blue.500',
-                    color: useColorModeValue('white', 'gray.700'),
-                  }}
-                />
-              </Tooltip>
-            </Stack>
+    <section id="contact-me" className="py-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
+        Contáctame
+      </h2>
 
-            {/* Formulario */}
-            <Box
-              w="full"
-              bg={useColorModeValue('white', 'gray.700')}
-              borderRadius="lg"
-              p={6}
-              boxShadow="base"
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+        {/* Left: contact info */}
+        <div className="flex flex-col gap-6">
+          <p className="text-gray-400 text-sm leading-relaxed">
+            ¿Tienes un proyecto en mente o quieres hablar sobre oportunidades? Escríbeme y te respondo a la brevedad.
+          </p>
+
+          <div className="flex flex-col gap-4">
+            <a
+              href="mailto:jemgdev@gmail.com"
+              className="flex items-center gap-3 text-sm text-gray-300 hover:text-accent transition-colors group"
             >
-              <VStack spacing={5}>
-                <FormControl isRequired>
-                  <FormLabel>Nombre</FormLabel>
-                  <InputGroup>
-                    <InputLeftAddon children={<BsPerson />} />
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder="Ingrese su nombre"
-                      value={email.name}
-                      onChange={handleChange}
-                    />
-                  </InputGroup>
-                </FormControl>
+              <span className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
+                <Mail size={16} className="text-muted group-hover:text-accent transition-colors" />
+              </span>
+              jemgdev@gmail.com
+            </a>
 
-                <FormControl isRequired>
-                  <FormLabel>Email</FormLabel>
-                  <InputGroup>
-                    <InputLeftAddon children={<MdOutlineEmail />} />
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Ingrese su email"
-                      value={email.email}
-                      onChange={handleChange}
-                    />
-                  </InputGroup>
-                </FormControl>
+            <a
+              href="https://github.com/jemgdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-sm text-gray-300 hover:text-accent transition-colors group"
+            >
+              <span className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
+                <Github size={16} className="text-muted group-hover:text-accent transition-colors" />
+              </span>
+              github.com/jemgdev
+            </a>
 
-                <FormControl isRequired>
-                  <FormLabel>Mensaje</FormLabel>
-                  <Textarea
-                    name="message"
-                    placeholder="Ingrese su mensaje"
-                    rows={6}
-                    resize="none"
-                    value={email.message}
-                    onChange={handleChange}
-                  />
-                </FormControl>
+            <a
+              href="https://www.linkedin.com/in/jemgdev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-sm text-gray-300 hover:text-accent transition-colors group"
+            >
+              <span className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
+                <Linkedin size={16} className="text-muted group-hover:text-accent transition-colors" />
+              </span>
+              linkedin.com/in/jemgdev
+            </a>
+          </div>
 
-                <Button
-                  colorScheme="blue"
-                  bg="blue.400"
-                  color="white"
-                  w="full"
-                  _hover={{ bg: 'blue.500' }}
-                  onClick={handleSendEmail}
-                >
-                  Enviar correo
-                </Button>
-              </VStack>
-            </Box>
-          </VStack>
-        </Box>
-      </Flex>
-    </Element>
+          <button
+            onClick={handleCopyEmail}
+            className="flex items-center gap-2 w-fit px-4 py-2 border border-border rounded-lg text-xs text-muted hover:border-accent/40 hover:text-gray-100 transition-colors"
+          >
+            {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+            {copied ? '¡Copiado!' : 'Copiar email'}
+          </button>
+        </div>
 
+        {/* Right: form */}
+        <div className="bg-surface border border-border rounded-xl p-6 flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-muted uppercase tracking-wider">
+              Nombre *
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Tu nombre"
+              value={form.name}
+              onChange={handleChange}
+              className="bg-bg border border-border rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-muted focus:outline-none focus:border-accent/60 transition-colors"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-muted uppercase tracking-wider">
+              Email *
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="tu@email.com"
+              value={form.email}
+              onChange={handleChange}
+              className="bg-bg border border-border rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-muted focus:outline-none focus:border-accent/60 transition-colors"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-muted uppercase tracking-wider">
+              Mensaje *
+            </label>
+            <textarea
+              name="message"
+              placeholder="Escribe tu mensaje..."
+              rows={5}
+              value={form.message}
+              onChange={handleChange}
+              className="bg-bg border border-border rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-muted focus:outline-none focus:border-accent/60 transition-colors resize-none"
+            />
+          </div>
+
+          {feedback && (
+            <p className={`text-xs ${feedback.ok ? 'text-emerald-400' : 'text-red-400'}`}>
+              {feedback.message}
+            </p>
+          )}
+
+          <button
+            onClick={handleSend}
+            disabled={sending}
+            className="flex items-center justify-center gap-2 px-4 py-2.5 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            <Send size={14} />
+            {sending ? 'Enviando...' : 'Enviar mensaje'}
+          </button>
+        </div>
+      </div>
+    </section>
   )
 }

@@ -1,146 +1,62 @@
-import { useEffect, useRef, useState } from 'react'
-import { Element } from 'react-scroll'
-import {
-  Heading,
-  Flex,
-  Tooltip,
-  Box,
-  Text,
-  SimpleGrid,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
-} from '@chakra-ui/react'
-import {
-  BsChatDots,
-  BsPeople,
-  BsArrowRepeat,
-  BsDiagram3,
-  BsBook,
-  BsPersonPlus
-} from 'react-icons/bs'
-import { IconType } from 'react-icons'
-import scrollReveal from 'scrollreveal'
+import { motion } from 'framer-motion'
+import { MessageCircle, Users, TrendingUp, RefreshCw, Brain, BookOpen } from 'lucide-react'
 
-type SoftSkillCardProps = {
-  label: string
-  icon: ReturnType<IconType>
-  desc: string
-}
-
-function SoftSkillCard({ label, icon, desc }: SoftSkillCardProps) {
-  const isMobile = useBreakpointValue({ base: false, md: false })
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [clicked, setClicked] = useState(false)
-  const bg = useColorModeValue('white', 'gray.700')
-  const hoverBg = useColorModeValue('gray.50', 'gray.600')
-  const iconColor = useColorModeValue('blue.600', 'blue.300')
-
-  const handleClick = () => {
-    if (isMobile) {
-      if (clicked) {
-        setClicked(false)
-        onClose()
-      } else {
-        setClicked(true)
-        onOpen()
-      }
-    }
-  }
-
-  const isTooltipOpen = isMobile ? clicked && isOpen : undefined
-
-  return (
-    <Tooltip
-      label={desc}
-      hasArrow
-      isOpen={isTooltipOpen}
-      closeOnClick={false}
-      openDelay={isMobile ? 0 : 300}
-    >
-      <Flex
-        direction="column"
-        align="center"
-        bg={bg}
-        borderRadius="lg"
-        shadow="md"
-        p={6}
-        transition="all 0.2s"
-        _hover={{ shadow: 'xl', transform: 'translateY(-4px)', bg: hoverBg }}
-        onClick={handleClick}
-        cursor={isMobile ? 'pointer' : 'default'}
-      >
-        <Box fontSize="2xl" color={iconColor} mb={3}>
-          {icon}
-        </Box>
-        <Text fontWeight="semibold" fontSize="md" textAlign="center">
-          {label}
-        </Text>
-      </Flex>
-    </Tooltip>
-  )
-}
+const softSkills = [
+  {
+    label: 'Comunicación',
+    icon: MessageCircle,
+    desc: 'Expreso ideas con claridad y escucho con atención.',
+  },
+  {
+    label: 'Trabajo en equipo',
+    icon: Users,
+    desc: 'Fomento la colaboración y el trabajo en equipo.',
+  },
+  {
+    label: 'Liderazgo',
+    icon: TrendingUp,
+    desc: 'Empodero al equipo con mis conocimientos y tomo la iniciativa en pro de cumplir los objetivos.',
+  },
+  {
+    label: 'Adaptabilidad',
+    icon: RefreshCw,
+    desc: 'Me adapto rápidamente a cambios y nuevos desafíos.',
+  },
+  {
+    label: 'Pensamiento crítico',
+    icon: Brain,
+    desc: 'Analizo situaciones y resuelvo problemas en base a la lógica.',
+  },
+  {
+    label: 'Aprendizaje continuo',
+    icon: BookOpen,
+    desc: 'Siempre busco aprender y mejorar mis habilidades.',
+  },
+]
 
 export default function SoftSkills() {
-  const skillsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (skillsRef.current) {
-      scrollReveal().reveal(skillsRef.current, {
-        delay: 120,
-        distance: '2em',
-        origin: 'bottom',
-        opacity: 0,
-        reset: true
-      })
-    }
-  }, [])
-
-  const softSkills = [
-    {
-      label: 'Comunicación',
-      icon: <BsChatDots />,
-      desc: 'Expreso ideas con claridad y escucho con atención.',
-    },
-    {
-      label: 'Trabajo en equipo',
-      icon: <BsPeople />,
-      desc: 'Fomento la colaboración y el trabajo en equipo.',
-    },
-    {
-      label: 'Liderazgo',
-      icon: <BsPersonPlus />,
-      desc: 'Empodero al equipo con mis conocimientos y tomo la iniciativa en pro de cumplir con los objetivos.',
-    },
-    {
-      label: 'Adaptabilidad',
-      icon: <BsArrowRepeat />,
-      desc: 'Me adapto rápidamente a cambios y nuevos desafíos.',
-    },
-    {
-      label: 'Pensamiento crítico',
-      icon: <BsDiagram3 />,
-      desc: 'Analizo situaciones y resuelvo problemas en base a la lógica.',
-    },
-    {
-      label: 'Aprendizaje continuo',
-      icon: <BsBook />,
-      desc: 'Siempre busco aprender y mejorar mis habilidades.'
-    }
-  ]
-
   return (
-    <Element name="soft-skills">
-      <Flex direction="column" align="center" justify="center" px={2}>
-        <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="semibold" textAlign="center" mb={8}>
-          Y sobre todo
-        </Heading>
-        <SimpleGrid ref={skillsRef} columns={{ base: 2, sm: 3, md: 3, lg: 3 }} spacing={{ base: 6, md: 10 }} maxW="5xl" w="full">
-          {softSkills.map(({ label, icon, desc }) => (
-            <SoftSkillCard key={label} label={label} icon={icon} desc={desc} />
-          ))}
-        </SimpleGrid>
-      </Flex>
-    </Element>
+    <section id="soft-skills" className="py-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
+        Y sobre todo
+      </h2>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+        {softSkills.map(({ label, icon: Icon, desc }, i) => (
+          <motion.div
+            key={label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4, delay: i * 0.07 }}
+            className="bg-surface border border-border rounded-xl p-5 hover:-translate-y-1 hover:border-accent/30 transition-all duration-200"
+          >
+            <Icon size={24} className="text-accent mb-3" />
+            <h3 className="font-semibold text-gray-100 text-sm mb-1">{label}</h3>
+            <p className="text-xs text-muted leading-relaxed">{desc}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   )
 }

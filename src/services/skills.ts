@@ -1,53 +1,50 @@
-type skill = {
-  src: string,
-  alt: string
+export type SkillCategory = {
+  title: string
+  skills: string[]
 }
 
-const skills: skill[] = [
+const skillCategories: SkillCategory[] = [
   {
-    src: 'https://img.icons8.com/color/144/000000/amazon-web-services.png',
-    alt: 'aws'
+    title: 'Cloud & Infrastructure',
+    skills: [
+      'AWS Lambda',
+      'AWS EC2',
+      'AWS ECS',
+      'API Gateway',
+      'Cognito',
+      'DynamoDB',
+      'S3',
+      'CloudFront',
+      'SQS',
+      'SNS',
+      'Docker',
+      'Terraform',
+    ],
   },
   {
-    src: 'https://img.icons8.com/color/144/000000/awslambda.png',
-    alt: 'lambda'
+    title: 'Backend',
+    skills: [
+      'Node.js',
+      'NestJS',
+      'TypeScript',
+      'Express.js',
+      'Serverless',
+      'Python',
+    ],
   },
   {
-    src: 'https://img.icons8.com/color/144/000000/nodejs.png',
-    alt: 'nodejs'
+    title: 'Databases & Tools',
+    skills: [
+      'PostgreSQL',
+      'MySQL',
+      'MongoDB',
+      'DynamoDB',
+      'Redis',
+      'TypeORM',
+      'Prisma',
+      'Git',
+    ],
   },
-  {
-    src: 'https://img.icons8.com/color/144/000000/typescript.png',
-    alt: 'typescript'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/nestjs.png',
-    alt: 'nestjs'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/000000/mysql-logo.png',
-    alt: 'mysql'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/postgresql.png',
-    alt: 'postgresql'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/000000/git.png',
-    alt: 'git'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/000000/docker.png',
-    alt: 'docker'
-  },
-  {
-    src: 'https://img.icons8.com/color/144/000000/mongodb.png',
-    alt: 'mongodb'
-  },
-  {
-    src: 'https://img.icons8.com/ultraviolet/144/000000/react--v2.png',
-    alt: 'react'
-  }
 ]
 
-export default skills
+export default skillCategories

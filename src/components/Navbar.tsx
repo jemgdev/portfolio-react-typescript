@@ -1,75 +1,77 @@
-import {
-  Box,
-  Flex,
-  HStack,
-  IconButton,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  Container,
-  Collapse,
-  Text
-} from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import NavLink from './NavLink'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
-export default function Simple() {
-  const { isOpen, onClose, onToggle } = useDisclosure()
+const navLinks = [
+  { href: '#home', label: 'Inicio' },
+  { href: '#experience', label: 'Experiencia' },
+  { href: '#projects', label: 'Proyectos' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact-me', label: 'Contáctame' },
+]
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Box
-      bg={useColorModeValue('gray.50', 'gray.800')}
-      px={{ base: 6, md: 12, lg: 24 }}
-      boxShadow="md"
-      position="sticky"
-      top="0"
-      zIndex="1000"
-    >
-      <Container maxW="container.lg">
-        <Flex h={16} alignItems="center" justifyContent="space-between">
-          <IconButton
-            size="md"
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label="Open Menu"
-            display={{ md: 'none' }}
-            onClick={onToggle}
-          />
-          <HStack spacing={8} alignItems="center">
-            <Text
-              as="a"
-              fontSize="2xl"
-              fontWeight="semibold"
-              href="https://portfolio.jemgdev.click"
-              _hover={{ textDecoration: 'none', color: 'blue.500' }}
-            >
-              jemgdev
-            </Text>
-            <HStack
-              as="nav"
-              spacing={6}
-              display={{ base: 'none', md: 'flex' }}
-            >
-              <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
-              <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
-              <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
-              <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
-              <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
-            </HStack>
-          </HStack>
-        </Flex>
-      </Container>
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-bg/80 border-b border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <a
+            href="#home"
+            className="font-mono text-xl font-semibold hover:opacity-80 transition-opacity"
+          >
+            <span className="text-accent">&lt;</span>
+            <span className="text-gray-100">jemgdev</span>
+            <span className="text-accent"> /&gt;</span>
+          </a>
 
-      <Collapse in={isOpen}>
-        <Box pb={4} display={{ md: 'none' }}>
-          <Stack as="nav" spacing={4}>
-            <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
-            <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
-            <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
-            <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
-            <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
-          </Stack>
-        </Box>
-      </Collapse>
-    </Box>
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted hover:text-gray-100 transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <button
+            className="md:hidden text-muted hover:text-gray-100 transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-t border-border overflow-hidden"
+          >
+            <div className="px-4 py-4 flex flex-col gap-4 bg-surface">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-sm text-muted hover:text-gray-100 transition-colors py-1"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   )
 }

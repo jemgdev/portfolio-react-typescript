@@ -1,190 +1,159 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import CardProject from '../components/CardProject'
-import {
-  Badge,
-  Box,
-  Button,
-  ButtonGroup,
-  Center,
-  Flex,
-  Heading,
-  Image,
-  SimpleGrid,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react'
 import { getProjects } from '../services/projects'
-import { Element } from 'react-scroll'
 import Project from '../types/Project'
-import CardProjectSkeleton from '../components/CardProjectSkeleton'
-import { useToast } from '@chakra-ui/react'
-import scrollReveal from 'scrollreveal'
+import { ExternalLink, Code2, Loader2 } from 'lucide-react'
+
+function ProjectSkeleton() {
+  return (
+    <div className="bg-surface border border-border rounded-xl overflow-hidden animate-pulse">
+      <div className="w-full h-48 bg-border" />
+      <div className="p-5">
+        <div className="h-5 bg-border rounded w-1/2 mb-3" />
+        <div className="flex gap-2 mb-3">
+          <div className="h-4 bg-border rounded-full w-16" />
+          <div className="h-4 bg-border rounded-full w-20" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-3 bg-border rounded w-full" />
+          <div className="h-3 bg-border rounded w-4/5" />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
-  const projectsRef = useRef<HTMLDivElement>(null)
-  const toast = useToast()
-
-  const featuredCardBg = useColorModeValue('white', 'gray.800')
-  const featuredDescColor = useColorModeValue('gray.700', 'gray.300')
-  const featuredFooterBg = useColorModeValue('gray.100', 'gray.700')
-
-  const setStateProjects = async () => {
-    try {
-      setProjects(await getProjects())
-      setIsLoaded(true)
-      if (projectsRef.current) {
-        scrollReveal().reveal(projectsRef.current, {
-          delay: 120,
-          distance: '2em',
-          origin: 'bottom',
-          opacity: 0,
-          reset: true,
-        })
-      }
-    } catch (error) {
-      toast({
-        title: 'Error del servidor',
-        description: 'Hubo un fallo al cargar los recursos de los proyectos.',
-        status: 'error',
-        duration: 3000,
-        variant: 'top-accent',
-        position: 'bottom',
-        isClosable: true,
-      })
-    }
-  }
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    setStateProjects()
+    getProjects()
+      .then((data) => {
+        setProjects(data)
+        setIsLoaded(true)
+      })
+      .catch(() => {
+        setError(true)
+        setIsLoaded(true)
+      })
   }, [])
 
   const featured = projects.find((p) => p.featured)
   const rest = projects.filter((p) => !p.featured)
 
   return (
-    <Element name="projects">
-      <Heading
-        textAlign="center"
-        fontSize={{ base: '2xl', md: '3xl' }}
-        fontWeight="semibold"
-        mt="10vh"
-        mb="5vh"
-      >
+    <section id="projects" className="py-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
         Proyectos destacados
-      </Heading>
+      </h2>
 
-      <Box ref={projectsRef}>
-        {isLoaded ? (
-          <>
-            {/* Featured card — full width, horizontal on md+ */}
-            {featured && (
-              <Box
-                borderWidth="1px"
-                borderRadius="xl"
-                overflow="hidden"
-                boxShadow="md"
-                bg={featuredCardBg}
-                mb={8}
-                display="flex"
-                flexDirection={{ base: 'column', md: 'row' }}
-              >
-                <Image
-                  src={featured.img}
-                  alt={featured.description}
-                  objectFit="cover"
-                  w={{ base: '100%', md: '45%' }}
-                  h={{ base: '220px', md: 'auto' }}
-                  flexShrink={0}
-                />
+      {error && (
+        <p className="text-center text-muted text-sm">
+          No se pudieron cargar los proyectos.
+        </p>
+      )}
 
-                <Flex direction="column" justify="space-between" flex={1}>
-                  <Box p={6}>
-                    <Flex align="center" gap={3} mb={3}>
-                      <Text fontWeight="bold" fontSize="2xl">
-                        {featured.title}
-                      </Text>
-                      <Badge
-                        colorScheme="green"
-                        borderRadius="full"
-                        px={2}
-                        fontSize="xs"
+      {!isLoaded && (
+        <div className="flex flex-col gap-8">
+          <div className="bg-surface border border-border rounded-xl overflow-hidden animate-pulse h-64" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <ProjectSkeleton />
+            <ProjectSkeleton />
+          </div>
+        </div>
+      )}
+
+      {isLoaded && !error && (
+        <>
+          {/* Featured card */}
+          {featured && (
+            <div
+              className="rounded-xl overflow-hidden mb-8 flex flex-col md:flex-row bg-surface"
+              style={{
+                border: '1px solid transparent',
+                backgroundImage:
+                  'linear-gradient(#111827, #111827), linear-gradient(135deg, #4f8ef7, #4f8ef720)',
+                backgroundOrigin: 'border-box',
+                backgroundClip: 'padding-box, border-box',
+              }}
+            >
+              <img
+                src={featured.img}
+                alt={featured.description}
+                className="w-full md:w-2/5 h-56 md:h-auto object-cover flex-shrink-0"
+              />
+
+              <div className="flex flex-col justify-between flex-1">
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="font-bold text-2xl text-gray-100">{featured.title}</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                      {featured.category}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {featured.languages.map((language) => (
+                      <span
+                        key={language.name}
+                        className="text-xs font-mono px-2 py-0.5 rounded-full bg-bg border border-border text-muted"
                       >
-                        {featured.category}
-                      </Badge>
-                    </Flex>
+                        {language.name}
+                      </span>
+                    ))}
+                  </div>
 
-                    <Box display="flex" flexWrap="wrap" gap={2} mb={4}>
-                      {featured.languages.map((language) => (
-                        <Badge
-                          key={language.name}
-                          borderRadius="full"
-                          px={2}
-                          colorScheme={language.color}
-                          fontSize="sm"
-                        >
-                          {language.name}
-                        </Badge>
-                      ))}
-                    </Box>
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    {featured.description}
+                  </p>
+                </div>
 
-                    <Text fontSize="md" color={featuredDescColor}>
-                      {featured.description}
-                    </Text>
-                  </Box>
+                {(featured.link || featured.code) && (
+                  <div className="px-6 pb-6 flex gap-3">
+                    {featured.link && (
+                      <a
+                        href={featured.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
+                      >
+                        <ExternalLink size={14} />
+                        Ver proyecto
+                      </a>
+                    )}
+                    {featured.code && (
+                      <a
+                        href={featured.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-4 py-2 border border-border text-muted text-sm font-medium rounded-lg hover:border-accent/40 hover:text-gray-100 transition-colors"
+                      >
+                        <Code2 size={14} />
+                        Código
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
-                  {(featured.link || featured.code) && (
-                    <Box
-                      bg={featuredFooterBg}
-                      py={4}
-                      px={6}
-                      borderBottomRadius={{ base: 'xl', md: 'none' }}
-                      borderBottomRightRadius="xl"
-                    >
-                      <Center>
-                        <ButtonGroup spacing={3}>
-                          {featured.link && (
-                            <Button
-                              as="a"
-                              href={featured.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              colorScheme="blue"
-                            >
-                              Ver proyecto
-                            </Button>
-                          )}
-                          {featured.code && (
-                            <Button
-                              as="a"
-                              href={featured.code}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              colorScheme="blue"
-                            >
-                              Código
-                            </Button>
-                          )}
-                        </ButtonGroup>
-                      </Center>
-                    </Box>
-                  )}
-                </Flex>
-              </Box>
-            )}
+          {/* 2-column grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {rest.map((project) => (
+              <CardProject key={project.title} {...project} />
+            ))}
+          </div>
+        </>
+      )}
 
-            {/* 2-column grid for the rest */}
-            <SimpleGrid columns={[1, 2]} gap={8}>
-              {rest.map((project) => (
-                <CardProject key={project.title} {...project} />
-              ))}
-            </SimpleGrid>
-          </>
-        ) : (
-          <CardProjectSkeleton />
-        )}
-      </Box>
-    </Element>
+      {!isLoaded && !error && (
+        <div className="flex justify-center py-8">
+          <Loader2 className="animate-spin text-accent" size={24} />
+        </div>
+      )}
+    </section>
   )
 }

@@ -1,99 +1,62 @@
-import {
-  Box,
-  chakra,
-  Container,
-  Stack,
-  Text,
-  useColorModeValue,
-  VisuallyHidden,
-  useDisclosure
-} from '@chakra-ui/react'
-import NavLink from './NavLink'
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
-import { ReactNode } from 'react'
+import { Github, Linkedin } from 'lucide-react'
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: 'blue.500',
-        color: useColorModeValue('white', 'gray.700'),
-      }}>
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  )
-}
+const navLinks = [
+  { href: '#home', label: 'Inicio' },
+  { href: '#experience', label: 'Experiencia' },
+  { href: '#projects', label: 'Proyectos' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact-me', label: 'Contáctame' },
+]
 
 export default function Footer() {
-  const { onClose } = useDisclosure()
-
   return (
-    <Box
-      as="footer"
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-      borderTop="1px solid"
-      borderColor={useColorModeValue('gray.200', 'gray.700')}
-    >
-      <Container maxW="6xl" py={6}>
-        <Stack spacing={4} align="center" textAlign="center">
-          <Text fontSize="2xl" fontWeight="bold">
-            jemgdev
-          </Text>
+    <footer className="border-t border-border mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <a href="#home" className="font-mono text-lg font-semibold hover:opacity-80 transition-opacity">
+            <span className="text-accent">&lt;</span>
+            <span className="text-gray-100">jemgdev</span>
+            <span className="text-accent"> /&gt;</span>
+          </a>
 
-          <Stack
-            direction={{ base: 'column', sm: 'row' }}
-            spacing={4}
-            justify="center"
-            align="center"
-          >
-            <NavLink href="#home" text="Inicio" scrollToElement="home" onClose={onClose} />
-            <NavLink href="#experience" text="Experiencia" scrollToElement="experience" onClose={onClose} />
-            <NavLink href="#projects" text="Proyectos" scrollToElement="projects" onClose={onClose} />
-            <NavLink href="#skills" text="Skills" scrollToElement="skills" onClose={onClose} />
-            <NavLink href="#contact-me" text="Contáctame" scrollToElement="contact-me" onClose={onClose} />
-          </Stack>
-        </Stack>
+          <nav className="flex flex-wrap justify-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted hover:text-gray-100 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        <Box mt={6} pt={4} borderTopWidth={1}>
-          <Stack
-            direction={{ base: 'column', md: 'row' }}
-            spacing={4}
-            justify="space-between"
-            align="center"
-          >
-            <Text fontSize="sm">© 2026 jemgdev. Hecho con ❤️ y tecnología.</Text>
-            <Stack direction="row" spacing={5}>
-              <SocialButton label="GitHub" href="https://github.com/jemgdev">
-                <BsGithub />
-              </SocialButton>
-              <SocialButton label="LinkedIn" href="https://www.linkedin.com/in/jemgdev/">
-                <BsLinkedin />
-              </SocialButton>
-            </Stack>
-          </Stack>
-        </Box>
-      </Container>
-    </Box>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/jemgdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jemgdev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-border text-center text-xs text-muted">
+          © 2026 jemgdev. Hecho con ❤️ y tecnología.
+        </div>
+      </div>
+    </footer>
   )
 }

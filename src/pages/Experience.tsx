@@ -1,17 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { Element } from 'react-scroll'
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Badge,
-  useColorModeValue,
-  Circle,
-  VStack,
-  Link,
-} from '@chakra-ui/react'
-import scrollReveal from 'scrollreveal'
+import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 
 type ExperienceEntry = {
   company: string
@@ -154,148 +142,99 @@ const experiences: ExperienceEntry[] = [
 ]
 
 export default function Experience() {
-  const experienceRef = useRef<HTMLDivElement>(null)
-  const lineColor = useColorModeValue('gray.200', 'gray.600')
-  const dotInactiveBg = useColorModeValue('gray.200', 'gray.600')
-  const cardBg = useColorModeValue('white', 'gray.700')
-  const cardBorder = useColorModeValue('gray.100', 'gray.600')
-  const metaColor = useColorModeValue('gray.500', 'gray.400')
-  const bulletColor = useColorModeValue('gray.600', 'gray.300')
-  const projectSectionBg = useColorModeValue('gray.50', 'gray.600')
-  const projectNameColor = useColorModeValue('gray.700', 'gray.100')
-  const projectDescColor = useColorModeValue('gray.500', 'gray.400')
-
-  useEffect(() => {
-    if (experienceRef.current) {
-      scrollReveal().reveal(experienceRef.current, {
-        delay: 120,
-        distance: '2em',
-        origin: 'bottom',
-        opacity: 0,
-        reset: true,
-      })
-    }
-  }, [])
-
   return (
-    <Element name="experience">
-      <Box py={{ base: 12, md: 16 }} px={{ base: 4, md: 8 }}>
-        <Heading
-          as="h2"
-          textAlign="center"
-          fontSize={{ base: '2xl', md: '3xl' }}
-          fontWeight="semibold"
-          mb={12}
-        >
-          Experiencia laboral
-        </Heading>
+    <section id="experience" className="py-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-16">
+        Experiencia laboral
+      </h2>
 
-        <Flex justify="center">
-          <Box ref={experienceRef} w="full" maxW="3xl" position="relative">
-            {/* Vertical line */}
-            <Box
-              position="absolute"
-              left={{ base: '18px', md: '22px' }}
-              top="0"
-              bottom="0"
-              w="2px"
-              bg={lineColor}
-            />
+      <div className="relative max-w-3xl mx-auto">
+        {/* Glowing timeline line */}
+        <div
+          className="absolute left-5 top-0 bottom-0 w-0.5"
+          style={{
+            background: 'linear-gradient(to bottom, #4f8ef7, #4f8ef720)',
+            boxShadow: '0 0 8px #4f8ef780',
+          }}
+        />
 
-            <VStack spacing={8} align="stretch">
-              {experiences.map((exp, index) => (
-                <Flex key={index} gap={{ base: 4, md: 6 }} align="flex-start">
-                  {/* Dot */}
-                  <Circle
-                    size={{ base: '38px', md: '46px' }}
-                    bg={exp.current ? 'blue.500' : dotInactiveBg}
-                    border="3px solid"
-                    borderColor={exp.current ? 'blue.300' : lineColor}
-                    flexShrink={0}
-                    zIndex={1}
-                  />
+        <div className="flex flex-col gap-10">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="flex gap-6 items-start"
+            >
+              {/* Dot */}
+              <div className="relative flex-shrink-0 mt-1">
+                {exp.current ? (
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center z-10 relative">
+                    <span className="absolute inset-0 rounded-full bg-accent animate-ping opacity-30" />
+                    <span className="w-3 h-3 rounded-full bg-[#10b981]" />
+                  </div>
+                ) : (
+                  <div className="w-10 h-10 rounded-full bg-surface border border-border z-10 relative" />
+                )}
+              </div>
 
-                  {/* Card */}
-                  <Box
-                    flex={1}
-                    bg={cardBg}
-                    border="1px solid"
-                    borderColor={cardBorder}
-                    borderRadius="lg"
-                    p={{ base: 4, md: 5 }}
-                    shadow="sm"
-                    _hover={{ shadow: 'md' }}
-                    transition="box-shadow 0.2s"
-                  >
-                    <Flex justify="space-between" align="flex-start" wrap="wrap" gap={2} mb={1}>
-                      <Heading as="h3" fontSize={{ base: 'sm', md: 'md' }} fontWeight="semibold">
-                        {exp.company}
-                      </Heading>
-                      {exp.current && (
-                        <Badge colorScheme="blue" fontSize="xs" px={2} py={0.5} borderRadius="full">
-                          Actual
-                        </Badge>
-                      )}
-                    </Flex>
+              {/* Card */}
+              <div className="flex-1 bg-surface border border-border rounded-xl p-5 hover:border-accent/40 transition-colors">
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                  <h3 className="font-semibold text-gray-100 text-sm sm:text-base">{exp.company}</h3>
+                  {exp.current && (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-accent/20 text-accent border border-accent/30">
+                      Actual
+                    </span>
+                  )}
+                </div>
 
-                    <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="medium" color="blue.500" mb={1}>
-                      {exp.role}
-                    </Text>
+                <p className="text-sm font-medium text-accent mb-1">{exp.role}</p>
+                <p className="text-xs text-muted mb-4">{exp.period}</p>
 
-                    <Text fontSize="xs" color={metaColor} mb={3}>
-                      {exp.period}
-                    </Text>
+                <ul className="flex flex-col gap-1.5 mb-4">
+                  {exp.highlights.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-400">
+                      <span className="text-accent mt-0.5 flex-shrink-0">▸</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
 
-                    <VStack align="stretch" spacing={1}>
-                      {exp.highlights.map((point, i) => (
-                        <Flex key={i} gap={2} align="flex-start">
-                          <Text color="blue.400" fontSize="xs" mt="2px" flexShrink={0}>▸</Text>
-                          <Text fontSize={{ base: 'xs', md: 'sm' }} color={bulletColor}>
-                            {point}
-                          </Text>
-                        </Flex>
+                {exp.projects && exp.projects.length > 0 && (
+                  <div>
+                    <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">
+                      Proyectos
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      {exp.projects.map((project, pi) => (
+                        <div key={pi} className="bg-bg/60 rounded-lg px-3 py-2 border border-border">
+                          {project.link ? (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-bold text-gray-100 hover:text-accent transition-colors"
+                            >
+                              {project.name}
+                              <ExternalLink size={10} />
+                            </a>
+                          ) : (
+                            <span className="text-xs font-bold text-gray-100">{project.name}</span>
+                          )}
+                          <p className="text-xs text-muted mt-0.5">{project.description}</p>
+                        </div>
                       ))}
-                    </VStack>
-
-                    {exp.projects && exp.projects.length > 0 && (
-                      <Box mt={4}>
-                        <Text fontSize="xs" fontWeight="semibold" color={metaColor} textTransform="uppercase" letterSpacing="wider" mb={2}>
-                          Proyectos
-                        </Text>
-                        <VStack align="stretch" spacing={2}>
-                          {exp.projects.map((project, pi) => (
-                            <Box key={pi} bg={projectSectionBg} borderRadius="md" px={3} py={2}>
-                              {project.link ? (
-                                <Link
-                                  href={project.link}
-                                  isExternal
-                                  fontSize="xs"
-                                  fontWeight="bold"
-                                  color={projectNameColor}
-                                  _hover={{ color: 'blue.500', textDecoration: 'underline' }}
-                                >
-                                  {project.name} ↗
-                                </Link>
-                              ) : (
-                                <Text fontSize="xs" fontWeight="bold" color={projectNameColor}>
-                                  {project.name}
-                                </Text>
-                              )}
-                              <Text fontSize="xs" color={projectDescColor} mt={0.5}>
-                                {project.description}
-                              </Text>
-                            </Box>
-                          ))}
-                        </VStack>
-                      </Box>
-                    )}
-                  </Box>
-                </Flex>
-              ))}
-            </VStack>
-          </Box>
-        </Flex>
-      </Box>
-    </Element>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

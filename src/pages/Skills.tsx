@@ -1,68 +1,41 @@
-import { useEffect, useRef } from 'react'
-import { Element } from 'react-scroll'
-import { 
-  SimpleGrid,
-  Heading,
-  Flex,
-  Image,
-  Box,
-  Text
-} from '@chakra-ui/react'
-import scrollReveal from 'scrollreveal'
-import skills from '../services/skills'
+import { motion } from 'framer-motion'
+import skillCategories from '../services/skills'
 
-export default function Skills () {
-  const skillsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (skillsRef.current) {
-      scrollReveal().reveal(skillsRef.current, {
-        delay: 120,
-        distance: '2em',
-        origin: 'bottom',
-        opacity: 0,
-        reset: true
-      })
-    }
-  }, [])
+export default function Skills() {
   return (
-    <Element name="skills">
-      <Box py={{ base: 12, md: 16 }} px={{ base: 4, md: 8 }}>
-        <Heading
-          as="h2"
-          textAlign="center"
-          fontSize={{ base: '2xl', md: '3xl' }}
-          fontWeight="semibold"
-          mb={10}
-        >
-          Mis habilidades más destacadas
-        </Heading>
+    <section id="skills" className="py-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
+        Mis habilidades más destacadas
+      </h2>
 
-        <Flex justify="center">
-          <SimpleGrid
-            ref={skillsRef}
-            columns={{ base: 2, sm: 3, md: 4 }}
-            spacing={{ base: 8, md: 12, lg: 16 }}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {skillCategories.map((category, ci) => (
+          <motion.div
+            key={category.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4, delay: ci * 0.1 }}
+            className="bg-surface border border-border rounded-xl p-5"
           >
-            {skills.map((skill) => (
-              <Box key={skill.alt} textAlign="center">
-                <Image
-                  src={skill.src}
-                  alt={skill.alt}
-                  boxSize={{ base: '60px', md: '80px' }}
-                  mx="auto"
-                  transition="transform 0.2s"
-                  _hover={{ transform: 'scale(1.1)' }}
-                />
-                <Text mt={2} fontSize="sm" color="gray.500">
-                  {skill.alt}
-                </Text>
-              </Box>
-            ))}
-          </SimpleGrid>
-        </Flex>
-      </Box>
-    </Element>
+            <h3 className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+              {category.title}
+            </h3>
 
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-full bg-bg border border-border text-gray-300 hover:border-accent/40 hover:text-gray-100 transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   )
 }

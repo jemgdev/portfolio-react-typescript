@@ -1,104 +1,67 @@
-import {
-  Badge,
-  Box,
-  Button,
-  Center,
-  Flex,
-  Image,
-  SimpleGrid,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { ExternalLink, Code2 } from 'lucide-react'
 import Project from '../types/Project'
 
 export default function CardProject({ code, description, img, languages, link, title, category }: Project) {
   return (
-    <Box
-      borderWidth="1px"
-      borderRadius="xl"
-      overflow="hidden"
-      boxShadow="md"
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      bg={useColorModeValue('white', 'gray.800')}
-    >
-      <Image
-        src={img}
-        alt={description}
-        objectFit="cover"
-        w="100%"
-        h={{ base: '200px', md: '250px' }}
-        borderTopRadius="xl"
-      />
+    <div className="bg-surface border border-border rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-accent/30 transition-all duration-200">
+      <div className="relative">
+        <img
+          src={img}
+          alt={description}
+          className="w-full h-48 object-cover"
+        />
+        <span className={`absolute top-3 right-3 text-xs px-2 py-0.5 rounded-full font-medium ${
+          category === 'Profesional'
+            ? 'bg-accent/20 text-accent border border-accent/30'
+            : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+        }`}>
+          {category}
+        </span>
+      </div>
 
-      <Box p={6} flex="1">
-        <Flex align="center" justify="center" gap={3} mb={4}>
-          <Text fontWeight="bold" fontSize="2xl" textAlign="center">
-            {title}
-          </Text>
-          <Badge
-            colorScheme={category === 'Profesional' ? 'blue' : 'green'}
-            borderRadius="full"
-            px={2}
-            fontSize="xs"
-            flexShrink={0}
-          >
-            {category}
-          </Badge>
-        </Flex>
+      <div className="p-5 flex-1 flex flex-col">
+        <h3 className="font-bold text-lg text-gray-100 mb-3">{title}</h3>
 
-        <Box display="flex" flexWrap="wrap" justifyContent="center" gap={2} mb={4}>
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {languages.map((language) => (
-            <Badge
+            <span
               key={language.name}
-              borderRadius="full"
-              px={2}
-              colorScheme={language.color}
-              fontSize="sm"
+              className="text-xs font-mono px-2 py-0.5 rounded-full bg-bg border border-border text-muted"
             >
               {language.name}
-            </Badge>
+            </span>
           ))}
-        </Box>
+        </div>
 
-        <Text fontSize="md" textAlign="center" color={useColorModeValue('gray.700', 'gray.300')}>
-          {description}
-        </Text>
-      </Box>
+        <p className="text-sm text-gray-400 leading-relaxed flex-1">{description}</p>
+      </div>
 
       {(link || code) && (
-        <Box bg={useColorModeValue('gray.100', 'gray.700')} py={4} px={6} borderBottomRadius="xl">
-          <Center>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={3}>
-              {link && (
-                <Button
-                  as="a"
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  colorScheme="blue"
-                  w="full"
-                >
-                  Ver proyecto
-                </Button>
-              )}
-              {code && (
-                <Button
-                  as="a"
-                  href={code}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  colorScheme="blue"
-                  w="full"
-                >
-                  Código
-                </Button>
-              )}
-            </SimpleGrid>
-          </Center>
-        </Box>
+        <div className="px-5 pb-5 flex gap-3">
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-accent text-accent text-xs font-medium rounded-lg hover:bg-accent/10 transition-colors"
+            >
+              <ExternalLink size={13} />
+              Ver proyecto
+            </a>
+          )}
+          {code && (
+            <a
+              href={code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-border text-muted text-xs font-medium rounded-lg hover:border-accent/40 hover:text-gray-100 transition-colors"
+            >
+              <Code2 size={13} />
+              Código
+            </a>
+          )}
+        </div>
       )}
-    </Box>
+    </div>
   )
 }
