@@ -18,6 +18,7 @@ type ExperienceEntry = {
   period: string
   highlights: string[]
   current?: boolean
+  projects?: { name: string; description: string }[]
 }
 
 const experiences: ExperienceEntry[] = [
@@ -41,6 +42,13 @@ const experiences: ExperienceEntry[] = [
       'Desarrollo de conectores con HubSpot para automatización de CRM.',
       'Migración de arquitecturas monolíticas a hexagonal e IaC con Terraform.',
     ],
+    projects: [
+      {
+        name: 'CV Analyzer',
+        description:
+          'Analizador de hojas de vida con IA usando AWS Bedrock, Python, Terraform e integración con HubSpot para el equipo de contratación.',
+      },
+    ],
   },
   {
     company: 'PRAGMA',
@@ -50,6 +58,23 @@ const experiences: ExperienceEntry[] = [
       'Tech lead en migraciones cloud on-premise → AWS (ECS, Lambda, API Gateway).',
       'Mentoría técnica a desarrolladores junior y mid-level.',
       'Definición de arquitecturas con DDD, CQRS y Event-Driven en NestJS.',
+    ],
+    projects: [
+      {
+        name: 'Efecto BAM 2.0',
+        description:
+          'Plataforma de fidelización bancaria (reintegros, puntos, millas). Migración on-premise → AWS. Tech lead y desarrollo de múltiples APIs.',
+      },
+      {
+        name: 'Extrafinanciamiento',
+        description:
+          'Línea de crédito adicional para tarjetahabientes de BAM. Liderazgo técnico y despliegue en ambientes dev/QA.',
+      },
+      {
+        name: 'Cuenta Fácil e Inversión Virtual',
+        description:
+          '4 productos digitales de bancarización para Guatemala. Desarrollo de componentes críticos de apertura de cuentas.',
+      },
     ],
   },
   {
@@ -61,6 +86,18 @@ const experiences: ExperienceEntry[] = [
       'Migración de sistemas legacy a microservicios Node.js.',
       'Implementación de arquitectura hexagonal en proyectos del sector financiero.',
     ],
+    projects: [
+      {
+        name: 'Orkester',
+        description:
+          'Backoffice bancario de BAM. Mantenimiento evolutivo y nuevas APIs REST sobre plataforma en producción.',
+      },
+      {
+        name: 'Adquirencia - Pago Inmediato',
+        description:
+          'Automatización del cierre de POS para negocios afiliados. Microservicios de conciliación y desembolso financiero.',
+      },
+    ],
   },
   {
     company: 'PRAGMA',
@@ -70,6 +107,18 @@ const experiences: ExperienceEntry[] = [
       'Construcción de microservicios con NestJS para el sector bancario.',
       'Adopción de arquitectura hexagonal y patrones DDD en nuevos servicios.',
       'Integración con colas de mensajería SQS y eventos SNS en AWS.',
+    ],
+    projects: [
+      {
+        name: 'Crezcamos Aliados',
+        description:
+          'Programa de créditos para pequeños negocios de BAM. Microservicios serverless con arquitectura limpia y Jest.',
+      },
+      {
+        name: 'Puntos Colombia',
+        description:
+          'Plataforma de fidelización por puntos. Microservicios de onboarding de clientes.',
+      },
     ],
   },
   {
@@ -92,6 +141,9 @@ export default function Experience() {
   const cardBorder = useColorModeValue('gray.100', 'gray.600')
   const metaColor = useColorModeValue('gray.500', 'gray.400')
   const bulletColor = useColorModeValue('gray.600', 'gray.300')
+  const projectSectionBg = useColorModeValue('gray.50', 'gray.600')
+  const projectNameColor = useColorModeValue('gray.700', 'gray.100')
+  const projectDescColor = useColorModeValue('gray.500', 'gray.400')
 
   useEffect(() => {
     if (experienceRef.current) {
@@ -184,6 +236,26 @@ export default function Experience() {
                         </Flex>
                       ))}
                     </VStack>
+
+                    {exp.projects && exp.projects.length > 0 && (
+                      <Box mt={4}>
+                        <Text fontSize="xs" fontWeight="semibold" color={metaColor} textTransform="uppercase" letterSpacing="wider" mb={2}>
+                          Proyectos
+                        </Text>
+                        <VStack align="stretch" spacing={2}>
+                          {exp.projects.map((project, pi) => (
+                            <Box key={pi} bg={projectSectionBg} borderRadius="md" px={3} py={2}>
+                              <Text fontSize="xs" fontWeight="bold" color={projectNameColor}>
+                                {project.name}
+                              </Text>
+                              <Text fontSize="xs" color={projectDescColor} mt={0.5}>
+                                {project.description}
+                              </Text>
+                            </Box>
+                          ))}
+                        </VStack>
+                      </Box>
+                    )}
                   </Box>
                 </Flex>
               ))}

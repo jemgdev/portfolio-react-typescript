@@ -1,5 +1,84 @@
 [
     {
+        "img": "https://via.placeholder.com/390x220/4A90D9/FFFFFF?text=Logifly",
+        "title": "Logifly",
+        "description": "Authentication as a Service (SaaS). Plataforma de autenticación escalable construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
+        "link": "https://logifly.jemgdev.click",
+        "code": "https://github.com/jemgdev/logifly",
+        "languages": [
+            {
+                "name": "TypeScript",
+                "color": "blue"
+            },
+            {
+                "name": "AWS Lambda",
+                "color": "orange"
+            },
+            {
+                "name": "Cognito",
+                "color": "messenger"
+            },
+            {
+                "name": "DynamoDB",
+                "color": "linkedin"
+            },
+            {
+                "name": "Serverless",
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "img": "https://via.placeholder.com/390x220/232F3E/FF9900?text=CV+Analyzer",
+        "title": "CV Analyzer",
+        "description": "Solución de análisis automático de hojas de vida con IA. Construida con AWS Bedrock, Python, Terraform e integración con HubSpot para optimizar procesos de selección.",
+        "link": null,
+        "code": null,
+        "languages": [
+            {
+                "name": "Python",
+                "color": "yellow"
+            },
+            {
+                "name": "AWS Bedrock",
+                "color": "orange"
+            },
+            {
+                "name": "Terraform",
+                "color": "purple"
+            },
+            {
+                "name": "HubSpot",
+                "color": "orange"
+            }
+        ]
+    },
+    {
+        "img": "https://via.placeholder.com/390x220/2D3748/68D391?text=Mi+Dulce+Tesoro",
+        "title": "Mi Dulce Tesoro",
+        "description": "Sistema POS para registro de ventas y administración de productos. Backend Node.js con MySQL, frontend personalizado y despliegue en AWS EC2 con CI/CD.",
+        "link": null,
+        "code": null,
+        "languages": [
+            {
+                "name": "Node.js",
+                "color": "green"
+            },
+            {
+                "name": "MySQL",
+                "color": "blue"
+            },
+            {
+                "name": "AWS EC2",
+                "color": "orange"
+            },
+            {
+                "name": "JavaScript",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
         "img": "https://res.cloudinary.com/jemgdev/image/upload/c_scale,h_220,w_390/v1638261623/Portfolio/img-share_lsgi0j.jpg",
         "title": "ImgShare",
         "description": "Red social con funciones básicas para la carga y subida de imágenes, ademas de postear comentarios.",
@@ -198,35 +277,6 @@
             {
                 "name": "discord.js",
                 "color": "blue"
-            }
-        ]
-    },
-    {
-        "img": "https://via.placeholder.com/390x220/4A90D9/FFFFFF?text=Logifly",
-        "title": "Logifly",
-        "description": "Authentication as a Service (SaaS). Plataforma de autenticación escalable construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
-        "link": "https://logifly.jemgdev.click",
-        "code": "https://github.com/jemgdev/logifly",
-        "languages": [
-            {
-                "name": "TypeScript",
-                "color": "blue"
-            },
-            {
-                "name": "AWS Lambda",
-                "color": "orange"
-            },
-            {
-                "name": "Cognito",
-                "color": "messenger"
-            },
-            {
-                "name": "DynamoDB",
-                "color": "linkedin"
-            },
-            {
-                "name": "Serverless",
-                "color": "red"
             }
         ]
     }
