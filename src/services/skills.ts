@@ -68,11 +68,16 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: 'IA & Herramientas',
+    title: 'IA & AI Agents',
     skills: [
       'AWS Bedrock',
       'AI Agents',
       'MCP (Model Context Protocol)',
+      'MCP Servers',
+      'LLM Integration',
+      'Prompt Engineering',
+      'Automatización con IA',
+      'Análisis de código con IA',
       'SonarQube',
       'Jest',
       'Swagger / OpenAPI',
