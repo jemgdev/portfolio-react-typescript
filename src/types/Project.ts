@@ -1,10 +1,12 @@
 type Project = {
-  code?: string
-  description: string
   img: string
-  languages: [{ name: string, color: string }]
-  link?: string
   title: string
+  category: string
+  featured: boolean
+  description: string
+  link: string | null
+  code: string | null
+  languages: { name: string; color: string }[]
 }
 
 export default Project

@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   Circle,
   VStack,
+  Link,
 } from '@chakra-ui/react'
 import scrollReveal from 'scrollreveal'
 
@@ -18,7 +19,7 @@ type ExperienceEntry = {
   period: string
   highlights: string[]
   current?: boolean
-  projects?: { name: string; description: string }[]
+  projects?: { name: string; description: string; link?: string }[]
 }
 
 const experiences: ExperienceEntry[] = [
@@ -31,6 +32,14 @@ const experiences: ExperienceEntry[] = [
       'Desarrollo de servicios backend escalables con Node.js y TypeScript.',
       'Diseño e implementación de APIs RESTful con arquitectura hexagonal.',
       'Integración con servicios AWS y pipelines de CI/CD.',
+    ],
+    projects: [
+      {
+        name: 'Kasnet',
+        description:
+          'Plataforma bancaria con múltiples productos financieros. Backend con NestJS y arquitectura hexagonal.',
+        link: 'https://www.kasnet.com/',
+      },
     ],
   },
   {
@@ -48,6 +57,11 @@ const experiences: ExperienceEntry[] = [
         description:
           'Analizador de hojas de vida con IA usando AWS Bedrock, Python, Terraform e integración con HubSpot para el equipo de contratación.',
       },
+      {
+        name: 'Wally',
+        description: 'Billetera digital. Desarrollo backend con Node.js y AWS.',
+        link: 'https://www.wally.tech/',
+      },
     ],
   },
   {
@@ -64,16 +78,19 @@ const experiences: ExperienceEntry[] = [
         name: 'Efecto BAM 2.0',
         description:
           'Plataforma de fidelización bancaria (reintegros, puntos, millas). Migración on-premise → AWS. Tech lead y desarrollo de múltiples APIs.',
+        link: 'https://www.bam.com.gt/efecto-bam/',
       },
       {
         name: 'Extrafinanciamiento',
         description:
           'Línea de crédito adicional para tarjetahabientes de BAM. Liderazgo técnico y despliegue en ambientes dev/QA.',
+        link: 'https://www.bam.com.gt/extrafinanciamiento/',
       },
       {
         name: 'Cuenta Fácil e Inversión Virtual',
         description:
           '4 productos digitales de bancarización para Guatemala. Desarrollo de componentes críticos de apertura de cuentas.',
+        link: 'https://www.bam.com.gt/personas/cuentas/cuenta-facil/',
       },
     ],
   },
@@ -96,6 +113,7 @@ const experiences: ExperienceEntry[] = [
         name: 'Adquirencia - Pago Inmediato',
         description:
           'Automatización del cierre de POS para negocios afiliados. Microservicios de conciliación y desembolso financiero.',
+        link: 'https://www.bancolombia.com/empresas/productos-servicios/cash-management/recaudos/ventas-con-tarjeta',
       },
     ],
   },
@@ -113,11 +131,13 @@ const experiences: ExperienceEntry[] = [
         name: 'Crezcamos Aliados',
         description:
           'Programa de créditos para pequeños negocios de BAM. Microservicios serverless con arquitectura limpia y Jest.',
+        link: 'https://www.bam.com.gt/personas/prestamos/bam-aliados/',
       },
       {
         name: 'Puntos Colombia',
         description:
           'Plataforma de fidelización por puntos. Microservicios de onboarding de clientes.',
+        link: 'https://www.puntoscolombia.com/personas/inicio',
       },
     ],
   },
@@ -245,9 +265,22 @@ export default function Experience() {
                         <VStack align="stretch" spacing={2}>
                           {exp.projects.map((project, pi) => (
                             <Box key={pi} bg={projectSectionBg} borderRadius="md" px={3} py={2}>
-                              <Text fontSize="xs" fontWeight="bold" color={projectNameColor}>
-                                {project.name}
-                              </Text>
+                              {project.link ? (
+                                <Link
+                                  href={project.link}
+                                  isExternal
+                                  fontSize="xs"
+                                  fontWeight="bold"
+                                  color={projectNameColor}
+                                  _hover={{ color: 'blue.500', textDecoration: 'underline' }}
+                                >
+                                  {project.name} ↗
+                                </Link>
+                              ) : (
+                                <Text fontSize="xs" fontWeight="bold" color={projectNameColor}>
+                                  {project.name}
+                                </Text>
+                              )}
                               <Text fontSize="xs" color={projectDescColor} mt={0.5}>
                                 {project.description}
                               </Text>
