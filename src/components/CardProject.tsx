@@ -1,15 +1,24 @@
 import { ExternalLink, Code2 } from 'lucide-react'
 import Project from '../types/Project'
 
-export default function CardProject({ code, description, img, languages, link, title, category, logo }: Project) {
+export default function CardProject({ code, description, languages, link, title, category, logo }: Project) {
   return (
     <div className="bg-surface border border-border rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-accent/30 transition-all duration-200">
-      <div className="relative">
-        <img
-          src={img}
-          alt={description}
-          className="w-full h-48 object-cover"
-        />
+
+      {/* Header visual sin imagen */}
+      <div className="relative h-32 bg-gradient-to-br from-bg via-surface to-bg flex items-center justify-center border-b border-border">
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'radial-gradient(circle at 20% 50%, #4f8ef7 0%, transparent 50%), radial-gradient(circle at 80% 20%, #4f8ef7 0%, transparent 40%)'
+        }} />
+        {logo ? (
+          <div className="w-16 h-16 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg z-10">
+            <img src={logo} alt={title} className="w-full h-full object-contain" />
+          </div>
+        ) : (
+          <div className="w-16 h-16 bg-bg border border-border rounded-2xl flex items-center justify-center z-10">
+            <span className="text-accent font-mono text-xl font-bold">{title.slice(0, 2).toUpperCase()}</span>
+          </div>
+        )}
         <span className={`absolute top-3 right-3 text-xs px-2 py-0.5 rounded-full font-medium ${
           category === 'Profesional'
             ? 'bg-accent/20 text-accent border border-accent/30'
@@ -20,14 +29,7 @@ export default function CardProject({ code, description, img, languages, link, t
       </div>
 
       <div className="p-5 flex-1 flex flex-col">
-        <div className="flex items-center gap-3 mb-3">
-          {logo && (
-            <div className="w-8 h-8 bg-white rounded-lg p-1 flex-shrink-0 flex items-center justify-center">
-              <img src={logo} alt={title} className="w-full h-full object-contain" />
-            </div>
-          )}
-          <h3 className="font-bold text-lg text-gray-100">{title}</h3>
-        </div>
+        <h3 className="font-bold text-lg text-gray-100 mb-3">{title}</h3>
 
         <div className="flex flex-wrap gap-1.5 mb-3">
           {languages.map((language) => (

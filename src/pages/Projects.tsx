@@ -80,11 +80,21 @@ export default function Projects() {
                 backgroundClip: 'padding-box, border-box',
               }}
             >
-              <img
-                src={featured.img}
-                alt={featured.description}
-                className="w-full md:w-2/5 h-56 md:h-auto object-cover flex-shrink-0"
-              />
+              {/* Visual header instead of image */}
+              <div className="relative w-full md:w-2/5 h-48 md:h-auto bg-gradient-to-br from-bg via-surface to-bg flex items-center justify-center border-b md:border-b-0 md:border-r border-border flex-shrink-0">
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: 'radial-gradient(circle at 30% 50%, #4f8ef7 0%, transparent 60%)'
+                }} />
+                {featured.logo ? (
+                  <div className="w-24 h-24 bg-white rounded-2xl p-3 flex items-center justify-center shadow-xl z-10">
+                    <img src={featured.logo} alt={featured.title} className="w-full h-full object-contain" />
+                  </div>
+                ) : (
+                  <div className="w-24 h-24 bg-bg border border-border rounded-2xl flex items-center justify-center z-10">
+                    <span className="text-accent font-mono text-3xl font-bold">{featured.title.slice(0, 2).toUpperCase()}</span>
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-col justify-between flex-1">
                 <div className="p-6">
