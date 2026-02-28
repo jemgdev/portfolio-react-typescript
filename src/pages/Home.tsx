@@ -68,20 +68,16 @@ export default function Home() {
             Hola, soy <span className="text-accent">Josué</span>
           </h1>
 
-          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-300">
-            Medina García
-          </h2>
-
           <p className="text-gray-400 leading-relaxed max-w-lg">
             Construyo sistemas backend escalables con <span className="text-gray-100">Node.js</span>, <span className="text-gray-100">NestJS</span> y <span className="text-gray-100">AWS</span>. Especializado en arquitectura hexagonal, DDD y CQRS — llevando soluciones al siguiente nivel.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mt-2">
             <a
-              href="#projects"
+              href="#experience"
               className="flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
             >
-              Ver proyectos
+              Ver experiencia
               <ArrowRight size={16} />
             </a>
             <a
