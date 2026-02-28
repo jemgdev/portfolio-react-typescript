@@ -7,7 +7,7 @@
     "logo": "https://logifly.jemgdev.click/favicon.svg",
     "description": "Authentication as a Service (SaaS). Plataforma de autenticación centralizada para múltiples aplicaciones. Gestión de usuarios, roles, sesiones y webhooks. Construida con AWS Lambda, Cognito, DynamoDB y Serverless Framework.",
     "link": "https://logifly.jemgdev.click",
-    "code": "https://github.com/jemgdev/logifly",
+    "code": null,
     "languages": [
       { "name": "TypeScript", "color": "blue" },
       { "name": "AWS Lambda", "color": "orange" },
