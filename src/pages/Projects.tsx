@@ -69,7 +69,7 @@ export default function Projects() {
       {isLoaded && !error && (
         <>
           {/* 2-column grid — all projects */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {projects.map((project) => (
               <CardProject key={project.title} {...project} />
             ))}

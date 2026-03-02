@@ -22,7 +22,7 @@
     "title": "Mi Dulce Tesoro",
     "category": "Freelancer",
     "featured": false,
-    "logo": "https://www.google.com/s2/favicons?domain=midulcetesoro.jemgdev.click&sz=64",
+    "logo": "https://midulcetesoro.jemgdev.click/android-icon-144x144.png",
     "description": "Sistema POS completo para registro de ventas y administración de productos. Backend Node.js con MySQL, frontend personalizado, despliegue en AWS EC2 con CI/CD automatizado.",
     "link": "https://midulcetesoro.jemgdev.click/",
     "code": null,
@@ -31,6 +31,24 @@
       { "name": "MySQL", "color": "blue" },
       { "name": "AWS EC2", "color": "orange" },
       { "name": "JavaScript", "color": "yellow" }
+    ]
+  },
+  {
+    "img": "https://via.placeholder.com/390x220/2D3748/68D391?text=Love+Reminder",
+    "title": "Love Reminder",
+    "category": "Freelancer",
+    "featured": false,
+    "logo": "https://love-reminder.jemgdev.click/static/icons/android-icon-144x144.png",
+    "description": "Red social para compartir momentos especiales. Backend con AWS Lambda, DynamoDB y API Gateway. Frontend con React y Tailwind CSS. Despliegue en AWS con CI/CD.",
+    "link": "https://love-reminder.jemgdev.click/home",
+    "code": null,
+    "languages": [
+      { "name": "Node.js", "color": "green" },
+      { "name": "DynamoDB", "color": "blue" },
+      { "name": "API Gateway", "color": "blue" },
+      { "name": "AWS Lambda", "color": "orange" },
+      { "name": "JavaScript", "color": "yellow" },
+      { "name": "TypeScript", "color": "blue" }
     ]
   }
 ]
